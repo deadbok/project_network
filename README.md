@@ -44,5 +44,3 @@ Naming convention is used by first defining the device type then what network it
 what service it uses.
 ROUTER-EXT, ROUTER-INT, SERVER-DMZ-WEB, SERVER-SRVLAN-DNS, CLIENT-
 URSLAN
-
-*This is a test line - testing commits*
