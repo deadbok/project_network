@@ -49,5 +49,5 @@ URSLAN
 
  * `recovery`: Contains the recovery documentation
  * `images`: Contains pictures for the documentation
- * `*_etc`: Contains configuration files for a virtual machine
+ * `*-etc`: Contains configuration files for a virtual machine
 
