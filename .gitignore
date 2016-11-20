@@ -2,3 +2,5 @@
 .~lock*
 SERVER-DMZ-WEB
 
+# Don't include any local snapshots of the configurations files.
+*_config
