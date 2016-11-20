@@ -44,3 +44,10 @@ Naming convention is used by first defining the device type then what network it
 what service it uses.
 ROUTER-EXT, ROUTER-INT, SERVER-DMZ-WEB, SERVER-SRVLAN-DNS, CLIENT-
 URSLAN
+
+# 8. Directory Layout
+
+ * `recovery`: Contains the recovery documentation
+ * `images`: Contains pictures for the documentation
+ * `*_etc`: Contains configuration files for a virtual machine
+
