@@ -9,11 +9,11 @@ servers from our virtual desktop.
 
 ### Level 2 Diagram
 
-![Level 2 Diagram](http://i.imgur.com/j6iZkeJ.png)
+![Level 2 Diagram](images/topology_L2_week_45.png)
 
 ### Level 3 Diagram
 
-![Level 3 Diagram](http://i.imgur.com/ynyXPjv.png)
+![Level 3 Diagram](images/topology_L3_week_45.png)
 
 # 3. Performance
 
@@ -36,7 +36,12 @@ DNS does I that when I enter www.google.com it translates it to the correct IP a
 
 # 6. IP Layout
 
-![IP Layout](http://i.imgur.com/C0ff6Vy.png)
+| Network name |   Gateway   |        Subnet         |        Connections             |
+|--------------|-------------|-----------------------|--------------------------------|
+|  ROUTER-EXT  | 10.0.0.1    | DMZ 10.0.0.0/24       | SERVER-DMZ-WEB 10.0.0.2        | 
+|  ROUTER-INT  | 192.168.1.1 | SRVLAN 192.168.1.0/24 | SERVER-SRVLAN-DNS 192.168.1.2  | 
+|  ROUTER-INT  | 192.168.0.1 | SRVLAN 192.168.0.0/24 | CLIENT-USRLAN 192.168.0.2      |
+|  ROUTER-EXT  | 10.1.0.1    | 10.0.0.0/30           | ROUTER-INT 10.1.0.2            |
 
 # 7. Naming Convention
 
@@ -47,7 +52,6 @@ URSLAN
 
 # 8. Directory Layout
 
- * `recovery`: Contains the recovery documentation
- * `images`: Contains pictures for the documentation
- * `*-etc`: Contains configuration files for a virtual machine
-
+ * `recovery`: The recovery documentation
+ * `images`: Images for the documentation
+ * `*-etc`: Configuration files for a virtual machines
