@@ -35,7 +35,7 @@ When creating the virtual machines do not bother with the network configuration 
 
 The Kali client is a Live CD and is run directly from the ISO image, with no persistent storage. When setting up this machine in VMWare, create a custom machine (as shown in Illustration 1) with no emulated hard drive.
 
-![Creating a custom Virtual Machine](../master/images/vmware-custom-vm.png)
+![Creating a custom Virtual Machine](../images/vmware-custom-vm.png)
 
 Add the ISO image to the virtual machine in the screen after that, and on the next screen select the OS as shown in Illustration 2.
 
