@@ -49,16 +49,18 @@ The Kali client is a Live CD and is run directly from the ISO image, with no per
 </a>
 > Illustration 1: Creating a custom virtual machine
 
-Add the ISO image to the virtual machine in the screen after that, and on the next screen select the OS as shown in Illustration 2.
+Add the ISO image to the virtual machine in the screen after that, and on the next screen select the OS as shown in [Illustration 2](#illustration2).
 
-<span name="illustration2">
+<a name="illustration2">
 ![OS Selection for Kali client](../images/vmware-custom-OS.png)
-</span>
+</a>
 > Illustration 2: OS selection for the Kali Client
 
-On the following screen enter the name CLIENT-USRLAN. Set the amount of memory to no less than 1024MB or Kali will complain. VMWare insísts on creating a virtual hard drive, but since Kali is running from a live image, you are free to delete this virtual drive when the machine is created (see Illustration 3)
+On the following screen enter the name CLIENT-USRLAN. Set the amount of memory to no less than 1024MB or Kali will complain. VMWare insísts on creating a virtual hard drive, but since Kali is running from a live image, you are free to delete this virtual drive when the machine is created (see [Illustration 3](#illustration3))
 
+<a name="illustration3">
 ![You can delete the Hard Disk image since Kali is booted from the ISO image.](../images/vmware-client-delete-hd.png)
+<a name="illustration3">
 > Illustration 3: You can delete the Hard Disk image since Kali is booted from the ISO image.
 
 ## 4.2  SERVER-SRVLAN-DNS & SERVER-DMZ-WEB (Debian netinst)
