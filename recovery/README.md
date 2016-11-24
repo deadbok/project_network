@@ -33,7 +33,7 @@ When creating the virtual machines do not bother with the network configuration 
 
 ## 4.1.  CLIENT-USRLAN (Kali client)
 
-The Kali client is a Live CD and is run directly from the ISO image, with no persistent storage. When setting up this machine in VMWare, create a custom machine (as shown in [Illustration 1](/#illustration1) with no emulated hard drive.
+The Kali client is a Live CD and is run directly from the ISO image, with no persistent storage. When setting up this machine in VMWare, create a custom machine (as shown in [Illustration 1](/recovery/#illustration1)) with no emulated hard drive.
 
 ![Creating a custom Virtual Machine](../images/vmware-custom-vm.png)
 > [Illustration 1: Creating a custom virtual machine](#illustration1)
