@@ -14,6 +14,8 @@ Project web page [https://deadbok.github.io/project_network/](https://deadbok.gi
 - **Leaving unused interface configurations in the routers, they could be exploided and should be removed.**
 
 
+**When nothing else is mentioned commands are executed as root**
+
 # 2.  Overview
 
 This are the overall steps in recreating the system from scratch.
@@ -210,6 +212,37 @@ commit
  * Copy the configuration files into the server
  * Install dnsmasq
  * Enable the dnsmasq service
+
+Install dnsmasq on the virtual machine:
+
+```bash
+# Install dnsmasq
+apt-get install dnsmasq
+
+# Enable dnsmasq at boot
+update-rc.d dnsmasq enable
+
+# Start the service now
+service dnsmasq start
+```
+
+Copy the configuration files from the host to the virtual machine:
+
+```bash
+scp -r server-srvlan-dns-etc/* root@192.168.206.132:/etc/.
+```
+Command output:
+
+```bash
+The authenticity of host '192.168.206.132 (192.168.206.132)' can't be established.
+ECDSA key fingerprint is SHA256:fgr0UMwwkQXanpEQV4xrl1cLATThUpieh0QV5/o7SmE.
+Are you sure you want to continue connecting (yes/no)? yes
+Warning: Permanently added '192.168.206.132' (ECDSA) to the list of known hosts.
+root@192.168.206.132's password: 
+dnsmasq.conf                                                                                                                                                                                   100%   25KB   2.4MB/s   00:00    
+hosts                                                                                                                                                                                          100%  295    29.5KB/s   00:00    
+interfaces 
+```
 
 ## 5.7  SERVER-DMZ-WEB
 
