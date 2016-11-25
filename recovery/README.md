@@ -287,8 +287,7 @@ segment settings as shown in [Illustration 4](#illustration4).
 
 Set the interfaces of the virtual machines according to [Table 1](#table1):
 
-<div name="table1">
-
+<span name="table1">&nbsp;<span>
 |    Machine name   |   Interface 1   | Interface 2 |   Interface 3   |  Interface 4  |
 |-------------------|:---------------:|:-----------:|:---------------:|:-------------:|
 | CLIENT-USRLAN     | USRLAN          |     *nc*    |      *nc*       |      *nc*     | 
@@ -298,5 +297,5 @@ Set the interfaces of the virtual machines according to [Table 1](#table1):
 | SERVER-DMZ-WEB    | DMZ             |     *nc*    |      *nc*       |      *nc*     |
 
 *nc*: not connected.
-</div>
+
 > Table 1: Virtual machine interface connections.
