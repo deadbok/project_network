@@ -288,8 +288,9 @@ segment settings as shown in [Illustration 4](#illustration4).
 Set the interfaces of the virtual machines according to [Table 1](#table1):
 
 <div name="table1">
+
 |    Machine name   |   Interface 1   | Interface 2 |   Interface 3   |  Interface 4  |
-|-------------------|-----------------|-------------|-----------------|---------------|
+|-------------------|:---------------:|:-----------:|:---------------:|:-------------:|
 | CLIENT-USRLAN     | USRLAN          |     *nc*    |      *nc*       |      *nc*     | 
 | ROUTER-INT        | USRLAN          |    SRVLAN   | Router internal |      *nc*     | 
 | ROUTER-EXT        | Router internal |     DMZ     |      *nc*       |      *nc*     |
