@@ -157,11 +157,64 @@ commit
 The client boots of the ISO image and does not need any configuration.
 
 ## 5.4  ROUTER-INT
+To copy the configuration file onto the router when configured for SSH
+access do like this:
+
+```bash
+scp router-int.conf root@172.16.189.133:~/.
+```
+Then on the router login and load the configuration:
+
+```bash
+# Enter the cli
+cli
+
+# Enter edit mode
+edit
+
+# Load the configuration that has just been copied to the 
+# router.
+load override router-int.conf
+
+# Commit the new configuration
+commit
+```
 
 ## 5.5  ROUTER-EXT
+To copy the configuration file onto the router when configured for SSH
+access do like this:
+
+```bash
+scp router-ext.conf root@172.16.189.133:~/.
+```
+
+Then on the router login and load the configuration:
+
+```bash
+# Enter the cli
+cli
+
+# Enter edit mode
+edit
+
+# Load the configuration that has just been copied to the 
+# router.
+load override router-ext.conf
+
+# Commit the new configuration
+commit
+```
 
 ## 5.6  SERVER-SRVLAN-DNS
 
+ * Copy the configuration files into the server
+ * Install dnsmasq
+ * Enable the dnsmasq service
+
 ## 5.7  SERVER-DMZ-WEB
+
+ * Copy the configuration files into the server
+ * Install apache
+ * Enable
 
 ## 5.8  Network setup
