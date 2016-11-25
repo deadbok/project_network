@@ -285,12 +285,17 @@ segment settings as shown in [Illustration 4](#illustration4).
 </a>
 > Illustration 4: Creating the LAN segments
 
-Set the interfaces of the virtual machines according to the table below:
+Set the interfaces of the virtual machines according to [Table 1](#table1):
 
-|    Machine name   |   Interface 1   |  Interface 2  |   Interface 3   |  Interface 4  |
-|-------------------|-----------------|---------------|-----------------|---------------|
-| CLIENT-USRLAN     | USRLAN          | not connected |  not connected  | not connected | 
-| ROUTER-INT        | USRLAN          | SRVLAN        | Router internal | not connected | 
-| ROUTER-EXT        | Router internal | DMZ           |  not connected  | not connected |
-| SERVER-SRVLAN-DNS | SRVLAN          | not connected |  not connected  | not connected |
-| SERVER-DMZ-WEB    | DMZ             | not connected |  not connected  | not connected |
+<div name="table1">
+|    Machine name   |   Interface 1   | Interface 2 |   Interface 3   |  Interface 4  |
+|-------------------|-----------------|-------------|-----------------|---------------|
+| CLIENT-USRLAN     | USRLAN          |     *nc*    |      *nc*       |      *nc*     | 
+| ROUTER-INT        | USRLAN          |    SRVLAN   | Router internal |      *nc*     | 
+| ROUTER-EXT        | Router internal |     DMZ     |      *nc*       |      *nc*     |
+| SERVER-SRVLAN-DNS | SRVLAN          |     *nc*    |      *nc*       |      *nc*     |
+| SERVER-DMZ-WEB    | DMZ             |     *nc*    |      *nc*       |      *nc*     |
+
+*nc*: not connected.
+</div>
+> Table 1: Virtual machine interface connections.
