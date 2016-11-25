@@ -233,7 +233,7 @@ service dnsmasq start
 Copy the configuration files from the host to the virtual machine:
 
 ```bash
-scp -r server-srvlan-dns-etc/* root@192.168.206.132:/etc/.
+scp -r server-srvlan-dns/* root@192.168.206.132:/.
 ```
 Command output:
 
@@ -250,8 +250,26 @@ interfaces
 
 ## 5.7  SERVER-DMZ-WEB
 
- * Copy the configuration files into the server
  * Install apache
- * Enable
+ * Enable the apache service
+ 
+Install dnsmasq on the virtual machine:
+
+```bash
+# Install dnsmasq
+apt-get install apache2
+
+# Enable dnsmasq at boot
+update-rc.d apache2 enable
+
+# Start the service now
+service apache2 start
+```
+
+Copy the default HTML page to the server.
+
+```bash
+scp -r server-dmz-web/* root@192.168.206.130:/.
+```
 
 ## 5.8  Network setup
