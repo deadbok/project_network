@@ -97,12 +97,16 @@ service ssh restart
 
 ### 5.1.2  Add another network card to the virtual machine
 
-Open the properties for the virtual machine, and add another network card with a Host-only connection.
-![Add Host-Only Network](../images/vmware-add-host-only-net.png)
+Open the properties for the virtual machine, and add another network
+card with a NAT connection.
+![Add Host-Only Network](../images/vmware-add-NAT-net.png)
 > Adding a network card using Host-only to allow connecting from the host.
 
-After these steps simply get an address for the new interface on the server vm. There is no need to make any more changes to configuration files since this is a temporary management connection.
-To get an IP address for eth1 (assuming this is the name of the new network device) in the server vm run the following as root:
+After these steps simply get an address for the new interface on the 
+server vm. There is no need to make any more changes to configuration
+files since this is a temporary management connection.
+To get an IP address for eth1 (assuming this is the name of the new
+network device) in the server vm run the following as root:
 ```bash
 dhclient eth1
 ```
