@@ -1,5 +1,6 @@
 # Recovery Documentation
 ## Project network
+**Version 0.9.1**
 
 # 1 Introduction
 
@@ -234,18 +235,6 @@ Copy the configuration files from the host to the virtual machine:
 
 ```bash
 scp -r server-srvlan-dns/* root@192.168.206.132:/.
-```
-Command output:
-
-```bash
-The authenticity of host '192.168.206.132 (192.168.206.132)' can't be established.
-ECDSA key fingerprint is SHA256:fgr0UMwwkQXanpEQV4xrl1cLATThUpieh0QV5/o7SmE.
-Are you sure you want to continue connecting (yes/no)? yes
-Warning: Permanently added '192.168.206.132' (ECDSA) to the list of known hosts.
-root@192.168.206.132's password: 
-dnsmasq.conf                                                                                                                                                                                   100%   25KB   2.4MB/s   00:00    
-hosts                                                                                                                                                                                          100%  295    29.5KB/s   00:00    
-interfaces 
 ```
 
 ## 5.7 SERVER-DMZ-WEB
