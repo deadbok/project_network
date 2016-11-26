@@ -145,16 +145,13 @@ Retype new password: retype password here
 set interfaces ge-0/0/3 unit 0 family inet dhcp
 
 # Delete the interface from the untrusted zone.
-delete security zones security-zone untrust interfaces \
-ge-0/0/3.0
+delete security zones security-zone untrust interfaces ge-0/0/3.0
 
 # Put the interface in the trusted zone and allow all services
-set security zones security-zone trust interfaces \
-ge-0/0/3.0 host-inbound-traffic system-services all
+set security zones security-zone trust interfaces ge-0/0/3.0 host-inbound-traffic system-services all
 
 # Allow all protocols
-set security zones security-zone trust  \
-interfaces ge-0/0/3.0 host-inbound-traffic protocols  all
+set security zones security-zone trust interfaces ge-0/0/3.0 host-inbound-traffic protocols  all
 
 # Commit the changes
 commit
