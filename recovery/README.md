@@ -80,7 +80,7 @@ Settings for both servers should resemple those [Illustration 3](#illustration3)
 and [Illustration 4](#illustration4).
 
 <a name="illustration3">
-![VM Settings - SERVER-SRVLAN-DNS](../images/dns-server-vm-settins.png)
+![VM Settings - SERVER-SRVLAN-DNS](../images/dns-server-vm-settings.png)
 </a>
 > Illustration 3: VM Settings - SERVER-SRVLAN-DNS
 
