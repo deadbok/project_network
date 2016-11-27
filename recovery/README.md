@@ -6,16 +6,20 @@
 
 This document describes the steps needed to create project network.
 
-The latest version of this document is available at [https://github.com/deadbok/project_network](https://github.com/deadbok/project_network)
+The latest version of this document is available at
+[https://github.com/deadbok/project_network](https://github.com/deadbok/project_network)
 
-Project web page [https://deadbok.github.io/project_network/](https://deadbok.github.io/project_network/)
+Project web page
+[https://deadbok.github.io/project_network/](https://deadbok.github.io/project_network/)
 
 *When nothing else is mentioned commands are executed as root*
 
-**This is a test/teaching setup, there are some configuration details in here that should NEVER be allowed in a production environment.**
-- **Root logins from remote machines, instead create an unprivileged user for remote access.**
-- **Leaving unused interface configurations in the routers, they could be exploided and should be removed.**
-
+**This is a test/teaching setup, there are some configuration details
+  in here that should NEVER be allowed in a production environment.**
+- **Root logins from remote machines, instead create an unprivileged
+    user for remote access.**
+- **Leaving unused interface configurations in the routers, they could
+    be exploided and should be removed.**
 
 # 2 Overview
 
@@ -31,7 +35,8 @@ This are the overall steps in recreating the system from scratch.
 
 # 3 Software sources:
 
-These are the links to the external resources that has been downloaded to get things working:
+These are the links to the external resources that has been downloaded
+to get things working:
 
 - [MWare Workstation 12 Pro](http://www.vmware.com/products/workstation/workstation-evaluation.html)
 - [JunOS SRX VMWare virtual machine OVF](https://fronter.com/eal/links/files.phtml/2080432588$548107012$/1st+Semester/Data+Communication/Software/junos-vsrx-12.1X47-D15.4-domestic.ovf)
@@ -41,25 +46,34 @@ These are the links to the external resources that has been downloaded to get th
 
 # 4 Creating the Virtual Machines and install their OSs
 
-When creating the virtual machines do not bother with the network configuration at this time.
+When creating the virtual machines do not bother with the network
+configuration at this time.
 
 ## 4.1 CLIENT-USRLAN (Kali client)
 
-The Kali client is a Live CD and is run directly from the ISO image, with no persistent storage. When setting up this machine in VMWare, create a custom machine (as shown in [Illustration 1](#illustration1)) with no emulated hard drive.
+The Kali client is a Live CD and is run directly from the ISO image,
+with no persistent storage. When setting up this machine in VMWare,
+create a custom machine (as shown in [Illustration 1](#illustration1))
+with no emulated hard drive.
 
 <a name="illustration1">
 ![Creating a custom Virtual Machine](../images/vmware-custom-vm.png)
 </a>
 > Illustration 1: Creating a custom virtual machine
 
-Add the ISO image to the virtual machine in the screen after that, and on the next screen select the OS as shown in [Illustration 2](#illustration2).
+Add the ISO image to the virtual machine in the screen after that, and
+on the next screen select the OS as shown in [Illustration 2](#illustration2).
 
 <a name="illustration2">
 ![OS Selection for Kali client](../images/vmware-custom-OS.png)
 </a>
 > Illustration 2: OS selection for the Kali Client
 
-On the following screen enter the name CLIENT-USRLAN. Set the amount of memory to no less than 1024MB or Kali will complain. VMWare insísts on creating a virtual hard drive, but since Kali is running from a live image, you are free to delete this virtual drive when the machine is created (see [Illustration 3](#illustration3))
+On the following screen enter the name CLIENT-USRLAN. Set the amount of
+memory to no less than 1024MB or Kali will complain. VMWare insísts on
+creating a virtual hard drive, but since Kali is running from a live
+image, you are free to delete this virtual drive when the machine is
+created (see [Illustration 3](#illustration3))
 
 <a name="illustration3">
 ![You can delete the Hard Disk image since Kali is booted from the ISO image.](../images/vmware-client-delete-hd.png)
@@ -100,6 +114,7 @@ service ssh restart
 
 Open the properties for the virtual machine, and add another network
 card with a NAT connection.
+
 ![Add Host-Only Network](../images/vmware-add-NAT-net.png)
 > Adding a network card using Host-only to allow connecting from the host.
 
@@ -116,12 +131,14 @@ When the command finishes run ip addr, to learn the address assigned by DHCP:
 ip addr
 ```
 The output looks like this:
+
 ![IP Address - Debian](../images/debian-ip-addr.png)
 
 To ssh from the host to the vm server use the following command (with the actual IP address of the server):
 ```bash
 ssh root@172.16.189.128
 ```
+
 ![SSH - Debian](../images/ssh-host-to-debian-server.png)
 
 ## 5.2 General SSH setup of the routers

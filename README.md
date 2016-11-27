@@ -52,6 +52,7 @@ URSLAN
 
 # 8. Directory Layout
 
- * `recovery`: The recovery documentation
  * `images`: Images for the documentation
- * `*-etc`: Configuration files for a virtual machines
+ * `recovery`: The recovery documentation
+ * `router-*`: Configuration files for the routers
+ * `server-*`: Configuration files for the servers
