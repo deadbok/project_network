@@ -38,7 +38,7 @@ This are the overall steps in recreating the system from scratch.
 These are the links to the external resources that has been downloaded
 to get things working:
 
-- [MWare Workstation 12 Pro](http://www.vmware.com/products/workstation/workstation-evaluation.html)
+- [WMWare Workstation 12 Pro](http://www.vmware.com/products/workstation/workstation-evaluation.html)
 - [JunOS SRX VMWare Virtual Machine OVF (Limited to EAL.DK Students)](https://fronter.com/eal/links/files.phtml/2080432588$548107012$/1st+Semester/Data+Communication/Software/junos-vsrx-12.1X47-D15.4-domestic.ovf)
 - [JunOS SRX VMWare Virtual Machine VMDK](https://fronter.com/eal/links/files.phtml/2080432588$548107012$/1st+Semester/Data+Communication/Software/junos-vsrx-12.1X47-D15.4-domestic-disk1.vmdk)
 - [Ubuntu 16.04LTS Server Installer ISO](https://www.ubuntu.com/download/server/thank-you?version=16.04.1&architecture=amd64)
