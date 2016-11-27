@@ -38,7 +38,7 @@ This are the overall steps in recreating the system from scratch.
 These are the links to the external resources that has been downloaded
 to get things working:
 
-- [WMWare Workstation 12 Pro](http://www.vmware.com/products/workstation/workstation-evaluation.html)
+- [MWare Workstation 12 Pro](http://www.vmware.com/products/workstation/workstation-evaluation.html)
 - [JunOS SRX VMWare Virtual Machine OVF (Limited to EAL.DK Students)](https://fronter.com/eal/links/files.phtml/2080432588$548107012$/1st+Semester/Data+Communication/Software/junos-vsrx-12.1X47-D15.4-domestic.ovf)
 - [JunOS SRX VMWare Virtual Machine VMDK](https://fronter.com/eal/links/files.phtml/2080432588$548107012$/1st+Semester/Data+Communication/Software/junos-vsrx-12.1X47-D15.4-domestic-disk1.vmdk)
 - [Ubuntu 16.04LTS Server Installer ISO](https://www.ubuntu.com/download/server/thank-you?version=16.04.1&architecture=amd64)
@@ -51,39 +51,43 @@ configuration at this time.
 
 ## 4.1 CLIENT-USRLAN (Ubuntu Desktop Client)
 
-The Ubuntu Dekstop client is a Live CD and is run directly from the ISO image,
-with no persistent storage. When setting up this machine in VMWare,
-create a custom machine (as shown in [Illustration 1](#illustration1))
-with no emulated hard drive.
+For the Ubuntu Desktop, but also for the Server versions we will use VMWare VM Typical
+settings, since it sets everything we need by default, even the network interface to NAT,
+which is an essential feature needed in the OS install.
+When setting up this machine in VMWare,
+create a Typical custom machine (as shown in [Illustration 1](#illustration1))
 
 <a name="illustration1">
-![Creating a custom Virtual Machine](../images/vmware-custom-vm.png)
+![Creating a Typical custom Virtual Machine](../images/vmware-typical-machine.png)
 </a>
-> Illustration 1: Creating a custom virtual machine
+> Illustration 1: Creating a Typical custom virtual machine
 
-Add the ISO image to the virtual machine in the screen after that, and
-on the next screen select the OS as shown in [Illustration 2](#illustration2).
+Setup will request adding a name for the machine, disk size, user and password
+(this will mean we will be using a custom user, instead of default root).
+Machine settings should resemble those in [Illustration 2](#illustration2).
 
 <a name="illustration2">
-![OS Selection for Ubuntu Dekstop client](../images/vmware-custom-OS.png)
+![VM Settings - CLIENT-USRLAN](../images/client-vm-settings.png)
 </a>
-> Illustration 2: OS selection for the Ubuntu Dekstop Client
+> Illustration 2: VM Settings - CLIENT-USRLAN
 
-On the following screen enter the name CLIENT-USRLAN. Set the amount of
-memory to no less than 1024MB or Ubuntu Dekstop will complain. VMWare insísts on
-creating a virtual hard drive, but since Ubuntu Dekstop is running from a live
-image, you are free to delete this virtual drive when the machine is
-created (see [Illustration 3](#illustration3))
+
+## 4.2 SERVER-SRVLAN-DNS & SERVER-DMZ-WEB (Ubuntu Server)
+
+The Ubuntu Server Virtual Machines will follow the same steps as those we took
+earlier with the [**CLIENT-USRLAN**](#illustration1).
+Settings for both servers should resemple those [Illustration 3](#illustration3)
+and [Illustration 4](#illustration4).
 
 <a name="illustration3">
-![You can delete the Hard Disk image since Ubuntu Dekstop is booted from the ISO image.](../images/vmware-client-delete-hd.png)
-<a name="illustration3">
-> Illustration 3: You can delete the Hard Disk image since Ubuntu Dekstop is booted from the ISO image.
+![VM Settings - SERVER-SRVLAN-DNS](../images/dns-server-vm-settins.png)
+</a>
+> Illustration 3: VM Settings - SERVER-SRVLAN-DNS
 
-## 4.2 SERVER-SRVLAN-DNS & SERVER-DMZ-WEB (Debian netinst)
-
-To create the virtual machines for the Debian server, just click through the guided VM creation, in VMWare. There are only three changes, remember to select the debian-8.6.0-amd64-netinst.iso, for the installation media, set the correct machine name, and decrease the virtual hard drive to 2GB, to not waste space.
-When installing the Debian GNU/Linux remember to have a working Internet connection in the VM, because the netinst image fetches most of the Debian packages from the Internet. When the Debian installation asks for the hostname, use the name from the naming convention. Set the domain to “localnet”.
+<a name="illustration4">
+![VM Settings - SERVER-DMZ-WEB](../images/web-server-vm-settings.png)
+</a>
+> Illustration 4: VM Settings - SERVER-DMZ-WEB
 
 ## 4.3 ROUTER-EXT & ROUTER-INT (JunOS SRX VM)
 
@@ -91,7 +95,7 @@ The downloaded files has a VMWare “.ovf” file that you can open from the VMW
 
 # 5 Configuring the virtual machines
 
-## 5.1 General setup of the Debian servers
+## 5.1 General setup of the Ubuntu Servers
 
 To login to the server to install the configuration files an SSH connection to the virtual machine has to be established. To do this follow these steps:
 
