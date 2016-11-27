@@ -12,15 +12,6 @@ The latest version of this document is available at:
 Project web page:
 [https://deadbok.github.io/project_network/](https://deadbok.github.io/project_network/)
 
-*When nothing else is mentioned commands are executed as root*
-
-**This is a test/teaching setup, there are some configuration details
-  in here that should NEVER be allowed in a production environment.**
-- **Root logins from remote machines, instead create an unprivileged
-    user for remote access.**
-- **Leaving unused interface configurations in the routers, they could
-    be exploided and should be removed.**
-
 # 2 Overview
 
 This are the overall steps in recreating the system from scratch.
@@ -91,44 +82,26 @@ and [Illustration 4](#illustration4).
 
 ## 4.3 ROUTER-EXT & ROUTER-INT (JunOS SRX VM)
 
-The downloaded files has a VMWare “.ovf” file that you can open from the VMWare file menu. Rename the machine “ROUTER-EXT”. Create a full clone of the “ROUTER-EXT” machine and name that one “ROUTER-INT”. The JunOS operating system is all ready installed on the image, so for these machines there are no OS installation step.
+The downloaded files has a VMWare “.ovf” file that you can open from the VMWare file menu.
+Rename the machine “ROUTER-EXT”. Create a full clone of the “ROUTER-EXT” machine and name
+that one “ROUTER-INT”. The JunOS operating system is all ready installed on the image,
+so for these machines there are no OS installation step.
 
 # 5 Configuring the virtual machines
 
-## 5.1 General setup of the Ubuntu Servers
+## 5.1 Add another network card to the virtual machine
 
-To login to the server to install the configuration files an SSH connection to the virtual machine has to be established. To do this follow these steps:
-
-### 5.1.1 Setup SSH for root logins over the network
-
-Login as root and edit `/etc/ssh/sshd_config`, find the following line:
-```bash
-PermitRootLogin without-password
-```
-and change it to:
-```bash
-PermitRootLogin yes
-```
-Save the file and then restart SSH service:
-```bash
-service ssh restart
-```
-
-### 5.1.2 Add another network card to the virtual machine
-
+As with the server, and SSH connection is needed to copy the configuration to the routers.
 Open the properties for the virtual machine, and add another network
 card with a NAT connection.
 
-![Add Host-Only Network](../images/vmware-add-NAT-net.png)
-> Adding a network card using Host-only to allow connecting from the host.
+![Add Host-Only Network](../images/vmware-add-host-only-net.png)
+> Illustration 5:  Adding a network card using Host-only to allow connecting from the host.
 
-After these steps simply get an address for the new interface on the 
-server vm. There is no need to make any more changes to configuration
-files since this is a temporary management connection.
 To get an IP address for eth1 (assuming this is the name of the new
 network device) in the server vm run the following as root:
 ```bash
-dhclient eth1
+sudo dhclient eth1
 ```
 When the command finishes run ip addr, to learn the address assigned by DHCP:
 ```bash
@@ -136,20 +109,20 @@ ip addr
 ```
 The output looks like this:
 
-![IP Address - Debian](../images/debian-ip-addr.png)
+![IP Address - Ubuntu](../images/debian-ip-addr.png)
+> Illustration 6: Server IP Address
 
 To ssh from the host to the vm server use the following command (with the actual IP address of the server):
 ```bash
 ssh root@172.16.189.128
 ```
 
-![SSH - Debian](../images/ssh-host-to-debian-server.png)
+![SSH - Ubuntu](../images/ssh-host-to-debian-server.png)
+> Illustration 7: Server SSH Connection
 
-## 5.2 General SSH setup of the routers
-As with the server, and ssh connection is needed to copy the configuration to the routers. To have a Host-only connection refer to section “Add another network card to the virtual machine“.
-
-### 5.2.1 Configuring the router for SSH
+## 5.2 Configuring the router for SSH
 To set up the router for SSH access the following configuration has to be set for the Host-only interface:
+
 ```bash
 #Enter the cli
 cli
