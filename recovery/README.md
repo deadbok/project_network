@@ -1,15 +1,15 @@
 # Recovery Documentation
 ## Project network
-**Version 0.9.1**
+**Version 0.9.2**
 
 # 1 Introduction
 
 This document describes the steps needed to create project network.
 
-The latest version of this document is available at
+The latest version of this document is available at:
 [https://github.com/deadbok/project_network](https://github.com/deadbok/project_network)
 
-Project web page
+Project web page:
 [https://deadbok.github.io/project_network/](https://deadbok.github.io/project_network/)
 
 *When nothing else is mentioned commands are executed as root*
@@ -33,25 +33,25 @@ This are the overall steps in recreating the system from scratch.
 - Configure the external server for HTTP services
 - Configure internal machine for local DNS resolution
 
-# 3 Software sources:
+# 3 Software Sources:
 
 These are the links to the external resources that has been downloaded
 to get things working:
 
 - [MWare Workstation 12 Pro](http://www.vmware.com/products/workstation/workstation-evaluation.html)
-- [JunOS SRX VMWare virtual machine OVF](https://fronter.com/eal/links/files.phtml/2080432588$548107012$/1st+Semester/Data+Communication/Software/junos-vsrx-12.1X47-D15.4-domestic.ovf)
-- [JunOS SRX VMWare virtual machine VMDK](https://fronter.com/eal/links/files.phtml/2080432588$548107012$/1st+Semester/Data+Communication/Software/junos-vsrx-12.1X47-D15.4-domestic-disk1.vmdk)
-- [Debian net installer ISO](http://cdimage.debian.org/debian-cd/8.6.0/amd64/iso-cd/debian-8.6.0-amd64-netinst.iso)
-- [Kali Linix 64-bit ISO](http://cdimage.kali.org/kali-2016.2/kali-linux-2016.2-amd64.iso)
+- [JunOS SRX VMWare Virtual Machine OVF (Limited to EAL.DK Students)](https://fronter.com/eal/links/files.phtml/2080432588$548107012$/1st+Semester/Data+Communication/Software/junos-vsrx-12.1X47-D15.4-domestic.ovf)
+- [JunOS SRX VMWare Virtual Machine VMDK](https://fronter.com/eal/links/files.phtml/2080432588$548107012$/1st+Semester/Data+Communication/Software/junos-vsrx-12.1X47-D15.4-domestic-disk1.vmdk)
+- [Ubuntu 16.04LTS Server Installer ISO](https://www.ubuntu.com/download/server/thank-you?version=16.04.1&architecture=amd64)
+- [Ubuntu 16.04LTS Desktop Installer ISO](https://www.ubuntu.com/download/desktop/contribute?version=16.04.1&architecture=amd64)
 
-# 4 Creating the Virtual Machines and install their OSs
+# 4 Creating The Virtual Machines And Install Their OSs
 
 When creating the virtual machines do not bother with the network
 configuration at this time.
 
-## 4.1 CLIENT-USRLAN (Kali client)
+## 4.1 CLIENT-USRLAN (Ubuntu Desktop Client)
 
-The Kali client is a Live CD and is run directly from the ISO image,
+The Ubuntu Dekstop client is a Live CD and is run directly from the ISO image,
 with no persistent storage. When setting up this machine in VMWare,
 create a custom machine (as shown in [Illustration 1](#illustration1))
 with no emulated hard drive.
@@ -65,20 +65,20 @@ Add the ISO image to the virtual machine in the screen after that, and
 on the next screen select the OS as shown in [Illustration 2](#illustration2).
 
 <a name="illustration2">
-![OS Selection for Kali client](../images/vmware-custom-OS.png)
+![OS Selection for Ubuntu Dekstop client](../images/vmware-custom-OS.png)
 </a>
-> Illustration 2: OS selection for the Kali Client
+> Illustration 2: OS selection for the Ubuntu Dekstop Client
 
 On the following screen enter the name CLIENT-USRLAN. Set the amount of
-memory to no less than 1024MB or Kali will complain. VMWare insísts on
-creating a virtual hard drive, but since Kali is running from a live
+memory to no less than 1024MB or Ubuntu Dekstop will complain. VMWare insísts on
+creating a virtual hard drive, but since Ubuntu Dekstop is running from a live
 image, you are free to delete this virtual drive when the machine is
 created (see [Illustration 3](#illustration3))
 
 <a name="illustration3">
-![You can delete the Hard Disk image since Kali is booted from the ISO image.](../images/vmware-client-delete-hd.png)
+![You can delete the Hard Disk image since Ubuntu Dekstop is booted from the ISO image.](../images/vmware-client-delete-hd.png)
 <a name="illustration3">
-> Illustration 3: You can delete the Hard Disk image since Kali is booted from the ISO image.
+> Illustration 3: You can delete the Hard Disk image since Ubuntu Dekstop is booted from the ISO image.
 
 ## 4.2 SERVER-SRVLAN-DNS & SERVER-DMZ-WEB (Debian netinst)
 
@@ -173,7 +173,7 @@ set security zones security-zone trust interfaces ge-0/0/3.0 host-inbound-traffi
 # Commit the changes
 commit
 ```
-## 5.3 CLIENT-USRLAN (Kali client)
+## 5.3 CLIENT-USRLAN (Ubuntu Dekstop Client)
 
 The client boots of the ISO image and does not need any configuration.
 
@@ -253,20 +253,20 @@ scp -r server-srvlan-dns/* root@192.168.206.132:/.
 
 ## 5.7 SERVER-DMZ-WEB
 
- * Install apache
- * Enable the apache service
+ * Install Nginx
+ * Enable the Nginx service
  
 Install dnsmasq on the virtual machine:
 
 ```bash
 # Install dnsmasq
-apt-get install apache2
+apt-get install nginx
 
 # Enable dnsmasq at boot
-update-rc.d apache2 enable
+update-rc.d nginx enable
 
 # Start the service now
-service apache2 start
+service nginx start
 ```
 
 Copy the default HTML page to the server.
@@ -294,8 +294,8 @@ Set the interfaces of the virtual machines according to [Table 1](#table1):
 
 |    Machine name   |   Interface 1   | Interface 2 |   Interface 3   |  Interface 4  |
 |-------------------|:---------------:|:-----------:|:---------------:|:-------------:|
-| CLIENT-USRLAN     | USRLAN          |     *nc*    |      *nc*       |      *nc*     | 
-| ROUTER-INT        | USRLAN          |    SRVLAN   | Router internal |      *nc*     | 
+| CLIENT-USRLAN     | USRLAN          |     *nc*    |      *nc*       |      *nc*     |
+| ROUTER-INT        | USRLAN          |    SRVLAN   | Router internal |      *nc*     |
 | ROUTER-EXT        | Router internal |     DMZ     |      *nc*       |      *nc*     |
 | SERVER-SRVLAN-DNS | SRVLAN          |     *nc*    |      *nc*       |      *nc*     |
 | SERVER-DMZ-WEB    | DMZ             |     *nc*    |      *nc*       |      *nc*     |
