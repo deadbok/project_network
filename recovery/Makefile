@@ -1,4 +1,6 @@
-VERSION = 0.9.3
+VERSION := $(shell grep -oP '\*\*Version \K[[:alnum:]]\.[[:alnum:]]\.[[:alnum:]]' README.md)
 
-pdf:
-	cat README.md | grip --title=' ' --export - | pandoc -f html -V geometry:"top=2cm, bottom=1.5cm, left=1.5cm, right=1.5cm" -o recovery-$(VERSION).pdf --variable mainfont="Times New Roman" --variable sansfont="Courier New"
+recovery-$(VERSION).pdf: README.md
+	@echo Recovery doc version $(VERSION)
+	@echo
+	cat $< | grip --title=' ' --export - | pandoc -f html -V geometry:"top=2cm, bottom=1.5cm, left=1.5cm, right=1.5cm" -o '$@' --variable mainfont="Times New Roman" --variable sansfont="Courier New"
