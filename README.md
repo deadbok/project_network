@@ -57,6 +57,19 @@ URSLAN
  * `router-*`: Configuration files for the routers
  * `server-*`: Configuration files for the servers
  
+# 9. Building additional files or updating them.
+
+At the top level is a make file with the following rules:
+
+ * router-conf: Build the router configuration files from the Markdown
+ "              formatted versions.
+ * recovery: Build a .pdf version of the recovery documentation.
+ * all: Build all.
+ 
+To invoke any of these, use the make command:
+
+	make *rule name*
+ 
 # 9. Futher reading
 
  * [SRX Configuration example using fully qualified domain names in security policies](https://kb.juniper.net/InfoCenter/index?page=content&id=KB20994&actp=search)
