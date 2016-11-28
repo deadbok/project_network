@@ -200,6 +200,7 @@ load override router-int.conf
 # Commit the new configuration
 commit
 ```
+[Configuration file with comments](../router-ext-conf/router-int.conf.md)
 
 ## 5.5 ROUTER-EXT
 To copy the configuration file onto the router when configured for SSH
@@ -225,6 +226,8 @@ load override router-ext.conf
 # Commit the new configuration
 commit
 ```
+
+[Configuration file with comments](../router-ext-conf/router-ext.conf.md)
 
 ## 5.6 SERVER-SRVLAN-DNS
 
