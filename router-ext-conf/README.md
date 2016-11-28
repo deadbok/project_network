@@ -1,6 +1,6 @@
 # Files for configuring the ROUTER-EXT router.
 
-* Makefile: Make file with a rule to generate the areconfiguration file.
+* Makefile: Make file with a rule to generate the configuration file.
 * README.md: This file.
 * router-int.conf.md: Router configuration file with Markdown comments.
 * router-int.conf: The generated raw configuration file for the router.
