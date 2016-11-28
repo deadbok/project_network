@@ -3,13 +3,6 @@
 
 # Servers
 10.0.0.2		server-dmz-web.localnet
-192.168.1.2 	server-srvlan-dns.localnet
-
-# Router interfaces
-10.0.0.1 		router-ext-router-internal
-192.168.0.1 	router-int-usrlan
-192.168.1.1 	router-int-srvlan
-10.1.0.1 		router-int-router-internal	
 
 # The following lines are desirable for IPv6 capable hosts
 ::1     localhost ip6-localhost ip6-loopback

@@ -1,6 +1,9 @@
 #LibreOffice lock files.
 .~lock*
-SERVER-DMZ-WEB
+
+#VM's
+SERVER-*
+ROUTER-*
 
 # Don't include any local snapshots of the configurations files.
 *_config
