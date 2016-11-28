@@ -1,0 +1,57 @@
+server {
+    ##
+    # Server Details
+    ##
+    listen         80;
+    listen	   [::]:80 default_server ipv6only=on;
+    server_name    network.tools www.network.tools;
+
+    ##
+    # Server Logs
+    ##
+    access_log /var/log/nginx/network.tools_access.log;
+    error_log /var/log/nginx/network.tools_error.log;
+
+    ##
+    # Server Folders
+    ##
+    root /var/www/network.tools/_site;
+    default_type "text/html";
+    try_files  $uri $uri.html $uri/index.html index.html;
+    autoindex off;
+
+    # If no favicon exists return a 204 (no content error).
+    location = /favicon.ico {
+        try_files $uri =204;
+        log_not_found off;
+        access_log off;
+    }
+
+    # Don't log robots.txt requests.
+    location = /robots.txt {
+        allow all;
+        log_not_found off;
+        access_log off;
+    }
+    # All files/directories that are protected and unaccessible from
+    # the web.
+    location ~* ^.*(\.(?:git|svn|htaccess|pot?))$ {
+        return 404;
+    }
+
+    # Static files are served directly.
+    location ~* \.(?:css|gif|htc|ico|js|jpe?g|png|swf)$ {
+        expires max;
+        log_not_found off;
+
+        # No need to bleed constant updates. Send the all shebang in one
+        # fell swoop.
+        tcp_nodelay off;
+
+        # Set the OS file cache.
+        open_file_cache max=1000 inactive=120s;
+        open_file_cache_valid 45s;
+        open_file_cache_min_uses 2;
+        open_file_cache_errors off;
+    }
+}
