@@ -39,19 +39,19 @@ These are the links to the external resources that has been downloaded
 to get things working:
 
 - [WMWare Workstation 12 Pro](http://www.vmware.com/products/workstation/workstation-evaluation.html)
-- [JunOS SRX VMWare Virtual Machine OVF (Limited to EAL.DK Students)](https://fronter.com/eal/links/files.phtml/2080432588$548107012$/1st+Semester/Data+Communication/Software/junos-vsrx-12.1X47-D15.4-domestic.ovf)
-- [JunOS SRX VMWare Virtual Machine VMDK](https://fronter.com/eal/links/files.phtml/2080432588$548107012$/1st+Semester/Data+Communication/Software/junos-vsrx-12.1X47-D15.4-domestic-disk1.vmdk)
-- [Ubuntu 16.04LTS Server Installer ISO](https://www.ubuntu.com/download/server/thank-you?version=16.04.1&architecture=amd64)
-- [Ubuntu 16.04LTS Desktop Installer ISO](https://www.ubuntu.com/download/desktop/contribute?version=16.04.1&architecture=amd64)
+- [JunOS SRX VMWare virtual machine OVF](https://fronter.com/eal/links/files.phtml/2080432588$548107012$/1st+Semester/Data+Communication/Software/junos-vsrx-12.1X47-D15.4-domestic.ovf)
+- [JunOS SRX VMWare virtual machine VMDK](https://fronter.com/eal/links/files.phtml/2080432588$548107012$/1st+Semester/Data+Communication/Software/junos-vsrx-12.1X47-D15.4-domestic-disk1.vmdk)
+- [Debian net installer ISO](http://cdimage.debian.org/debian-cd/8.6.0/amd64/iso-cd/debian-8.6.0-amd64-netinst.iso)
+- [Kali Linix 64-bit ISO](http://cdimage.kali.org/kali-2016.2/kali-linux-2016.2-amd64.iso)
 
 # 4 Creating The Virtual Machines And Install Their OSs
 
 When creating the virtual machines do not bother with the network
 configuration at this time.
 
-## 4.1 CLIENT-USRLAN (Ubuntu Desktop Client)
+## 4.1 CLIENT-USRLAN (Kali)
 
-The Ubuntu Dekstop client is a Live CD and is run directly from the ISO image,
+The Kali client is a Live CD and is run directly from the ISO image,
 with no persistent storage. When setting up this machine in VMWare,
 create a custom machine (as shown in [Illustration 1](#illustration1))
 with no emulated hard drive.
@@ -65,20 +65,20 @@ Add the ISO image to the virtual machine in the screen after that, and
 on the next screen select the OS as shown in [Illustration 2](#illustration2).
 
 <a name="illustration2">
-![OS Selection for Ubuntu Dekstop client](../images/vmware-custom-OS.png)
+![OS Selection for Debian client](../images/vmware-custom-OS.png)
 </a>
-> Illustration 2: OS selection for the Ubuntu Dekstop Client
+> Illustration 2: OS selection for the Debian Client
 
 On the following screen enter the name CLIENT-USRLAN. Set the amount of
-memory to no less than 1024MB or Ubuntu Dekstop will complain. VMWare insísts on
-creating a virtual hard drive, but since Ubuntu Dekstop is running from a live
+memory to no less than 1024MB or Debian will complain. VMWare insísts on
+creating a virtual hard drive, but since Debian is running from a live
 image, you are free to delete this virtual drive when the machine is
 created (see [Illustration 3](#illustration3))
 
 <a name="illustration3">
-![You can delete the Hard Disk image since Ubuntu Dekstop is booted from the ISO image.](../images/vmware-client-delete-hd.png)
+![You can delete the Hard Disk image since Debian is booted from the ISO image.](../images/vmware-client-delete-hd.png)
 <a name="illustration3">
-> Illustration 3: You can delete the Hard Disk image since Ubuntu Dekstop is booted from the ISO image.
+> Illustration 3: You can delete the Hard Disk image since Debian is booted from the ISO image.
 
 ## 4.2 SERVER-SRVLAN-DNS & SERVER-DMZ-WEB (Debian netinst)
 
@@ -173,7 +173,7 @@ set security zones security-zone trust interfaces ge-0/0/3.0 host-inbound-traffi
 # Commit the changes
 commit
 ```
-## 5.3 CLIENT-USRLAN (Ubuntu Dekstop Client)
+## 5.3 CLIENT-USRLAN (Kali Client)
 
 The client boots of the ISO image and does not need any configuration.
 
