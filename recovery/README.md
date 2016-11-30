@@ -24,23 +24,38 @@ This are the overall steps in recreating the system from scratch.
 - Configure the external server for HTTP services
 - Configure internal machine for local DNS resolution
 
-# 3 Software Sources:
+# 3 System Requirements
 
-These are the links to the external resources that has been downloaded
-to get things working:
+Based on our current status in recovery and testing stages, the following
+hardware and software are a minimum requirement in order to run the network.
+All mentioned software resources are pointing to official manufacturer download
+locations and official Lillebaelt Academy curriculum resources.
 
-- [MWare Workstation 12 Pro](http://www.vmware.com/products/workstation/workstation-evaluation.html)
-- [JunOS SRX VMWare Virtual Machine OVF (Limited to EAL.DK Students)](https://fronter.com/eal/links/files.phtml/2080432588$548107012$/1st+Semester/Data+Communication/Software/junos-vsrx-12.1X47-D15.4-domestic.ovf)
-- [JunOS SRX VMWare Virtual Machine VMDK](https://fronter.com/eal/links/files.phtml/2080432588$548107012$/1st+Semester/Data+Communication/Software/junos-vsrx-12.1X47-D15.4-domestic-disk1.vmdk)
-- [Ubuntu 16.04LTS Server Installer ISO](https://www.ubuntu.com/download/server/thank-you?version=16.04.1&architecture=amd64)
-- [Ubuntu 16.04LTS Desktop Installer ISO](https://www.ubuntu.com/download/desktop/contribute?version=16.04.1&architecture=amd64)
+### 3.1 Hardware
+
+- CPU: Dual-Core Processor with multi-threading and virtualization.
+- Memory: 8GB DDR3 Dual-Channel.
+- Storage: 20GB HDD Free Space.
+
+### 3.2 Software
+
+**License Limited Software**
+- Machine Virtualization: [MWare Workstation 12 Pro](http://www.vmware.com/products/workstation/workstation-evaluation.html)
+
+**Lillebaelt Academy Curriculum Resources**
+- Network Routers: [JunOS SRX VMWare Virtual Machine OVF (Limited to EAL.DK Students)](https://fronter.com/eal/links/files.phtml/2080432588$548107012$/1st+Semester/Data+Communication/Software/junos-vsrx-12.1X47-D15.4-domestic.ovf)
+- Network Routers: [JunOS SRX VMWare Virtual Machine VMDK](https://fronter.com/eal/links/files.phtml/2080432588$548107012$/1st+Semester/Data+Communication/Software/junos-vsrx-12.1X47-D15.4-domestic-disk1.vmdk)
+
+**Open Source Software**
+- Network Servers: [Ubuntu 16.04LTS Server Installer ISO](https://www.ubuntu.com/download/server/thank-you?version=16.04.1&architecture=amd64)
+- Network Client: [Ubuntu 16.04LTS Desktop Installer ISO](https://www.ubuntu.com/download/desktop/contribute?version=16.04.1&architecture=amd64)
 
 # 4 Creating The Virtual Machines And Install Their OSs
 
 When creating the virtual machines do not bother with the network
 configuration at this time.
 
-## 4.1 CLIENT-USRLAN (Ubuntu Desktop Client)
+## 4.1 CLIENT-USRLAN (Ubuntu 16.04LTS Desktop Client)
 
 For the Ubuntu Desktop, but also for the Server versions we will use VMWare VM Typical
 settings, since it sets everything we need by default, even the network interface to NAT,
@@ -63,7 +78,7 @@ Machine settings should resemble those in [Illustration 2](#illustration2).
 > Illustration 2: VM Settings - CLIENT-USRLAN
 
 
-## 4.2 SERVER-SRVLAN-DNS & SERVER-DMZ-WEB (Ubuntu Server)
+## 4.2 SERVER-SRVLAN-DNS & SERVER-DMZ-WEB (Ubuntu 16.04LTS Server)
 
 The Ubuntu Server Virtual Machines will follow the same steps as those we took
 earlier with the [**CLIENT-USRLAN**](#illustration1).
@@ -80,7 +95,7 @@ and [Illustration 4](#illustration4).
 </a>
 > Illustration 4: VM Settings - SERVER-DMZ-WEB
 
-## 4.3 ROUTER-EXT & ROUTER-INT (JunOS SRX VM)
+## 4.3 ROUTER-EXT & ROUTER-INT (JunOS vSRX 12.1)
 
 The downloaded files has a VMWare “.ovf” file that you can open from the VMWare file menu.
 Rename the machine “ROUTER-EXT”. Create a full clone of the “ROUTER-EXT” machine and name
@@ -131,7 +146,7 @@ cli
 edit
 
 # Set the root password
-set system root-authentication plain-text-password 
+set system root-authentication plain-text-password
 New Password: type password here
 Retype new password: retype password here
 
@@ -150,7 +165,7 @@ set security zones security-zone trust interfaces ge-0/0/3.0 host-inbound-traffi
 # Commit the changes
 commit
 ```
-## 5.3 CLIENT-USRLAN (Ubuntu Dekstop Client)
+## 5.3 CLIENT-USRLAN (Ubuntu Desktop Client)
 
 The client boots of the ISO image and does not need any configuration.
 
@@ -170,7 +185,7 @@ cli
 # Enter edit mode
 edit
 
-# Load the configuration that has just been copied to the 
+# Load the configuration that has just been copied to the
 # router.
 load override router-int.conf
 
@@ -195,7 +210,7 @@ cli
 # Enter edit mode
 edit
 
-# Load the configuration that has just been copied to the 
+# Load the configuration that has just been copied to the
 # router.
 load override router-ext.conf
 
@@ -205,9 +220,9 @@ commit
 
 ## 5.6 SERVER-SRVLAN-DNS
 
- * Copy the configuration files into the server
- * Install dnsmasq
- * Enable the dnsmasq service
+* Copy the configuration files into the server
+* Install dnsmasq
+* Enable the dnsmasq service
 
 Install dnsmasq on the virtual machine:
 
@@ -232,7 +247,7 @@ scp -r server-srvlan-dns/* root@192.168.206.132:/.
 
  * Install Nginx
  * Enable the Nginx service
- 
+
 Install dnsmasq on the virtual machine:
 
 ```bash
