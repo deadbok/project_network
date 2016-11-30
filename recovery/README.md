@@ -177,6 +177,7 @@ load override router-int.conf
 # Commit the new configuration
 commit
 ```
+**When the configuration has been loaded the password will be `test12`**
 
 ## 5.5 ROUTER-EXT
 To copy the configuration file onto the router when configured for SSH
@@ -202,6 +203,7 @@ load override router-ext.conf
 # Commit the new configuration
 commit
 ```
+**When the configuration has been loaded the password will be `test12`**
 
 ## 5.6 SERVER-SRVLAN-DNS
 
