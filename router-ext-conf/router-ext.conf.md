@@ -368,16 +368,6 @@ Allow traffic from the trusted zone to untrusted zone.
 Deny traffic from the DMZ zone to trusted zone unless it is DNS traffic.	
 
 			from-zone dmz to-zone trust {
-			   policy default-deny {
-					match {
-						source-address any;
-						destination-address any;
-						application any;
-					}
-					then {
-						deny;
-					}
-				}
 				policy dns-permit {
 					match {
 						source-address any;
@@ -409,16 +399,6 @@ Deny traffic from the untrusted zone to dmz zone unless it is HTTP/HTTPS
 traffic.
 
 			from-zone untrust to-zone dmz {
-				policy default-deny {
-					match {
-						source-address any;
-						destination-address any;
-						application any;
-					}
-					then {
-						deny;
-					}
-				}
 				policy webserver-permit {
 					match {
 						source-address any;
