@@ -5,6 +5,9 @@
 # 1 Introduction
 
 This document describes the steps needed to create project network.
+*It is assumed that you have a Windows 7/8/10 or a desktop Linux
+distribution installed on the host machine as well as VMWare Workstation
+12 Pro.*
 
 The latest version of this document is available at:
 [https://github.com/deadbok/project_network](https://github.com/deadbok/project_network)
@@ -26,24 +29,25 @@ This are the overall steps in recreating the system from scratch.
 
 # 3 System Requirements
 
-Based on our current status in recovery and testing stages, the following
-hardware and software are a minimum requirement in order to run the network.
-All mentioned software resources are pointing to official manufacturer download
-locations and official Lillebaelt Academy curriculum resources.
+Based on the current status in recovery and testing stages, the following
+hardware and software are a minimum requirement in order to run the
+network. All mentioned software resources are pointing to official
+manufacturer download locations and official Lillebaelt Academy
+curriculum resources.
 
 ### 3.1 Hardware
 
-- CPU: Dual-Core Processor with multi-threading and virtualization.
+- CPU: Dual-Core Processor with multi-threading and virtualisation.
 - Memory: 8GB DDR3 Dual-Channel.
 - Storage: 20GB HDD Free Space.
 
 ### 3.2 Software
 
 **License Limited Software**
-- Machine Virtualization: [MWare Workstation 12 Pro](http://www.vmware.com/products/workstation/workstation-evaluation.html)
+- Machine Virtualisation: [MWare Workstation 12 Pro](http://www.vmware.com/products/workstation/workstation-evaluation.html)
 
 **Lillebaelt Academy Curriculum Resources**
-- Network Routers: [JunOS SRX VMWare Virtual Machine OVF (Limited to EAL.DK Students)](https://fronter.com/eal/links/files.phtml/2080432588$548107012$/1st+Semester/Data+Communication/Software/junos-vsrx-12.1X47-D15.4-domestic.ovf)
+- Network Routers: [JunOS SRX VMWare Virtual Machine OVF](https://fronter.com/eal/links/files.phtml/2080432588$548107012$/1st+Semester/Data+Communication/Software/junos-vsrx-12.1X47-D15.4-domestic.ovf)
 - Network Routers: [JunOS SRX VMWare Virtual Machine VMDK](https://fronter.com/eal/links/files.phtml/2080432588$548107012$/1st+Semester/Data+Communication/Software/junos-vsrx-12.1X47-D15.4-domestic-disk1.vmdk)
 
 **Open Source Software**
@@ -57,50 +61,69 @@ configuration at this time.
 
 ## 4.1 CLIENT-USRLAN (Ubuntu 16.04LTS Desktop Client)
 
-For the Ubuntu Desktop, but also for the Server versions we will use VMWare VM Typical
-settings, since it sets everything we need by default, even the network interface to NAT,
-which is an essential feature needed in the OS install.
+For the Ubuntu Desktop, but also for the Server versions use the VMWare 
+VM Typical settings, since it sets everything needed by default, even
+the network interface to NAT, which is an essential feature needed in
+the OS install and later software/service installation.
 When setting up this machine in VMWare,
-create a Typical custom machine (as shown in [Illustration 1](#illustration1))
+create a Typical custom machine (as shown in [Illustration 1](#illustration1)).
 
 <a name="illustration1">
 ![Creating a Typical custom Virtual Machine](../images/vmware-typical-machine.png)
 </a>
 > Illustration 1: Creating a Typical custom virtual machine
 
-Setup will request adding a name for the machine, disk size, user and password
-(this will mean we will be using a custom user, instead of default root).
-Machine settings should resemble those in [Illustration 2](#illustration2).
+Next select the downloaded Ubunto Desktop ISO as the operating system
+source (as shown in [Illustration 2](#illustration2)).
 
 <a name="illustration2">
+![Selecting operating system source](../images/install-ubuntu-desktop.png)
+</a>
+> Illustration 2: Selecting operating system source
+
+Setup will request adding a name for the machine, disk size, user and
+password. By filling in the user information a less privileged user will
+be created. When logged in as this user you can temporarily change to
+the `root` account, which is the superuser of the system that has access
+to all of the OS and hardware. Machine settings should resemble those in
+[Illustration 3](#illustration3).
+
+<a name="illustration3">
 ![VM Settings - CLIENT-USRLAN](../images/client-vm-settings.png)
 </a>
-> Illustration 2: VM Settings - CLIENT-USRLAN
+> Illustration 3: VM Settings - CLIENT-USRLAN
 
 
 ## 4.2 SERVER-SRVLAN-DNS & SERVER-DMZ-WEB (Ubuntu 16.04LTS Server)
 
-The Ubuntu Server Virtual Machines will follow the same steps as those we took
-earlier with the [**CLIENT-USRLAN**](#illustration1).
-Settings for both servers should resemple those [Illustration 3](#illustration3)
-and [Illustration 4](#illustration4).
+The Ubuntu Server Virtual Machines will follow the same steps as those 
+of creating the  [**CLIENT-USRLAN**](#illustration1), except using the
+downloaded Ubuntu Server ISO as the operating system source
+(as shown in [Illustration 5](#illustration5)).
 
-<a name="illustration3">
+<a name="illustration2">
+![Selecting operating system source](../images/install-ubuntu-server.png)
+</a>
+> Illustration 5: Selecting operating system source
+Settings for both servers should resemble those in [Illustration 6](#illustration6)
+and [Illustration 7](#illustration7).
+
+<a name="illustration6">
 ![VM Settings - SERVER-SRVLAN-DNS](../images/dns-server-vm-settings.png)
 </a>
-> Illustration 3: VM Settings - SERVER-SRVLAN-DNS
+> Illustration 6: VM Settings - SERVER-SRVLAN-DNS
 
-<a name="illustration4">
+<a name="illustration7">
 ![VM Settings - SERVER-DMZ-WEB](../images/web-server-vm-settings.png)
 </a>
-> Illustration 4: VM Settings - SERVER-DMZ-WEB
+> Illustration 7: VM Settings - SERVER-DMZ-WEB
 
 ## 4.3 ROUTER-EXT & ROUTER-INT (JunOS vSRX 12.1)
 
 The downloaded files has a VMWare “.ovf” file that you can open from the VMWare file menu.
 Rename the machine “ROUTER-EXT”. Create a full clone of the “ROUTER-EXT” machine and name
-that one “ROUTER-INT”. The JunOS operating system is all ready installed on the image,
-so for these machines there are no OS installation step.
+that one “ROUTER-INT”. The JunOS operating system is already installed on the image,
+therefore there are no OS installation steps for these machines.
 
 # 5 Configuring the virtual machines
 
