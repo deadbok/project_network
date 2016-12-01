@@ -106,8 +106,8 @@ downloaded Ubuntu Server ISO as the operating system source
 </a>
 > Illustration 5: Selecting operating system source
 
-Settings for both servers should resemble those in [Illustration 6](#illustration6)
-and [Illustration 7](#illustration7).
+Settings for each server should resemble one of [Illustration 6](#illustration6)
+or [Illustration 7](#illustration7).
 
 <a name="illustration6">
 ![VM Settings - SERVER-SRVLAN-DNS](../images/dns-server-vm-settings.png)
