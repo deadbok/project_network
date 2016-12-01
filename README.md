@@ -9,11 +9,11 @@ servers from our virtual desktop.
 
 ### Level 2 Diagram
 
-![Level 2 Diagram](images/topology_L2_week_45.png)
+![Level 2 Diagram](images/topology L2 week 48.png)
 
 ### Level 3 Diagram
 
-![Level 3 Diagram](images/topology_L3_week_45.png)
+![Level 3 Diagram](images/topology L3 week 48.png)
 
 # 3. Performance
 
