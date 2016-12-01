@@ -105,6 +105,7 @@ downloaded Ubuntu Server ISO as the operating system source
 ![Selecting operating system source](../images/install-ubuntu-server.png)
 </a>
 > Illustration 5: Selecting operating system source
+
 Settings for both servers should resemble those in [Illustration 6](#illustration6)
 and [Illustration 7](#illustration7).
 
