@@ -128,39 +128,33 @@ therefore there are no OS installation steps for these machines.
 
 # 5 Configuring the virtual machines
 
-## 5.1 Add another network card to the virtual machine
+The USRLAN-CLIENT client is connected to the internet to clone this
+repository, the configurations files needed for the servers and routers
+are then copied from USRLAN-CLIENT to the individual machines.
 
-As with the server, and SSH connection is needed to copy the configuration to the routers.
-Open the properties for the virtual machine, and add another network
-card with a NAT connection.
+# 5.1 Cloning the git repository to USRLAN-CLIENT
 
-![Add Host-Only Network](../images/vmware-add-host-only-net.png)
-> Illustration 5:  Adding a network card using Host-only to allow connecting from the host.
+First install git to USRLAN-CLIENT as shown in [Illustration 8](#illustration8).
 
-To get an IP address for eth1 (assuming this is the name of the new
-network device) in the server vm run the following as root:
-```bash
-sudo dhclient eth1
-```
-When the command finishes run ip addr, to learn the address assigned by DHCP:
-```bash
-ip addr
-```
-The output looks like this:
+<a name="illustration8">
+![Installing git in USRLAN-CLIENT](../images/install-client-git.png)
+</a>
+> Illustration 8: Installing git on USRLAN-CLIENT
 
-![IP Address - Ubuntu](../images/debian-ip-addr.png)
-> Illustration 6: Server IP Address
+then clone this repository onto the USRLAN-CLIENT as shown in
+[Illustration 9](#illustration9).
 
-To ssh from the host to the vm server use the following command (with the actual IP address of the server):
-```bash
-ssh root@172.16.189.128
-```
+<a name="illustration9">
+![Cloning the project_network repository](../images/install-client-git.png)
+</a>
+> Illustration 9: Installing git on USRLAN-CLIENT
 
-![SSH - Ubuntu](../images/ssh-host-to-debian-server.png)
-> Illustration 7: Server SSH Connection
+## 5.2 Configuring the routers for SSH
 
-## 5.2 Configuring the router for SSH
-To set up the router for SSH access the following configuration has to be set for the Host-only interface:
+The goal of these steps are to get the routers online on the NAT network
+temporarily to copy the configuration files from the git repositry now
+present on USRLAN-CLIENT.
+
 
 ```bash
 #Enter the cli
