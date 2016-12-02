@@ -145,7 +145,7 @@ then clone this repository onto the USRLAN-CLIENT as shown in
 [Illustration 9](#illustration9).
 
 <a name="illustration9">
-![Cloning the project_network repository](../images/install-client-git.png)
+![Cloning the project_network repository](../images/clone-client-git.png)
 </a>
 > Illustration 9: Installing git on USRLAN-CLIENT
 
