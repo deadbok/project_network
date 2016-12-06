@@ -267,8 +267,7 @@ to is actually the right machine as shown in [Illustration 13](#illustration13)
 <a name="illustration13">
 ![First time SSH connection](../images/ssh-first-time-connection.png)
 </a>
-> Illustration 12: First time SSH connection
-
+> Illustration 13: First time SSH connection
 
 Then login to the router through the Virtual Machine console to load and commit
 the configuration file.
@@ -295,9 +294,21 @@ commit
 
 To shut down the router exit to the JunOS prompt, type `halt -p`, and wait.
 
-## 5.3 SERVER-SRVLAN-DNS
+## 5.3 Server IP address ##
 
-* Copy the configuration files into the server
+In the following steps the IP address of the Virtual Machine servers are needed.
+These can be obtained by login in to the server and typing `ip addr` as shown in
+[Illustration 14](#illustration14)
+
+<a name="illustration14">
+![Getting the IP address of an Ubuntu server VM on the NAT](../images/server-get-ip.png)
+</a>
+> Illustration 14: Getting the IP address of an Ubuntu server VM on the NAT
+
+## 5.4 SERVER-SRVLAN-DNS
+
+* Connect via SSH
+* Copy the configuration files onto the server
 * Install dnsmasq
 * Enable the dnsmasq service
 
@@ -320,7 +331,7 @@ Copy the configuration files from the host to the virtual machine:
 scp -r server-srvlan-dns/* root@192.168.206.132:/.
 ```
 
-## 5.4 SERVER-DMZ-WEB
+## 5.5 SERVER-DMZ-WEB
 
  * Install Nginx
  * Enable the Nginx service
