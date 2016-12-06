@@ -135,15 +135,27 @@ are then copied from USRLAN-CLIENT to the individual machines.
 
 # 5.1 Cloning the git repository to USRLAN-CLIENT
 
-First install git to USRLAN-CLIENT as shown in [Illustration 8](#illustration8).
+First start “terminal“ and install git to USRLAN-CLIENT as shown in
+[Illustration 8](#illustration8).
+
+```bash
+  sudo apt install git
+```
 
 <a name="illustration8">
 ![Installing git in USRLAN-CLIENT](../images/install-client-git.png)
 </a>
 > Illustration 8: Installing git on USRLAN-CLIENT
 
-then clone this repository onto the USRLAN-CLIENT as shown in
+then clone this repository onto the USRLAN-CLIENT and change in to the directory
+where the repository was cloned as shown in
 [Illustration 9](#illustration9).
+
+```bash
+  git clone https://github.com/deadbok/project_network
+  cd project_network
+```
+
 
 <a name="illustration9">
 ![Cloning the project_network repository](../images/clone-client-git.png)
