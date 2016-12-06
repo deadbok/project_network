@@ -17,7 +17,7 @@ Project web page:
 
 # 2 Overview
 
-This are the overall steps in recreating the system from scratch.
+This is the overall steps in recreating the system from scratch.
 - Software sources
 - Create virtual machines and install OSs if needed
 - Define the interfaces on each machine and link them together
