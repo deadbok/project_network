@@ -180,7 +180,7 @@ a connection to the same NAT network that USRLAN-CLIENT is connected to. The
 default configuration is shown in [Illustration 10](#illustration10).
 
 <a name="illustration10">
-![Default router network configuration](../images/routers-initial-net.png)
+![Default router network configuration](../images/routers-initital-net.png)
 </a>
 > Illustration 10: Default router network configuration
 
@@ -188,7 +188,7 @@ Change the first network adapter to `NAT` ad disable the rest by unchecking
 `Connect at power on` as shown in  [Illustration 11](#illustration11).
 
 <a name="illustration11">
-![VM configuration for router NAT access](../images/routers-initial-net.png)
+![VM configuration for router NAT access](../images/routers-nat-net.png)
 </a>
 > Illustration 11: VM configuration for router NAT access
 
