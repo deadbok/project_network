@@ -351,7 +351,7 @@ sudo scp -r *user name*@*CLIENT-USRLAN ip*:~/project_network/server-srvlan-dns/*
 where:
  * `*user name*` is the user name entered when creating the Virtual Machine.
  * `*CLIENT-USRLAN ip*` is the Virtual Machine IP address obtained as in
-   [5.3 CLIENT-USRLAN IP address](#53 CLIENT-USRLAN IP address).
+   [5.3 CLIENT-USRLAN IP address](#53-client-usrlan-ip-address).
 
 The result of the copy process should look something like [Illustration 15](#illustration15)
 
@@ -389,7 +389,7 @@ sudo scp -r *user name*@*CLIENT-USRLAN ip*:~/project_network/server-dmz-web/* /.
 where:
  * `*user name*` is the user name entered when creating the Virtual Machine.
  * `*CLIENT-USRLAN ip*` is the Virtual Machine IP address obtained as in
-   [5.3 CLIENT-USRLAN IP address](#53 CLIENT-USRLAN IP address).
+   [5.3 CLIENT-USRLAN IP address](#53-client-usrlan-ip-address).
 
 After copying the configuration files shutdown the machine by typing
 `sudo poweroff`.
