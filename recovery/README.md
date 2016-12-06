@@ -35,13 +35,13 @@ network. All mentioned software resources are pointing to official
 manufacturer download locations and official Lillebaelt Academy
 curriculum resources.
 
-### 3.1 Hardware
+## 3.1 Hardware
 
 - CPU: Dual-Core Processor with multi-threading and virtualisation.
 - Memory: 8GB DDR3 Dual-Channel.
 - Storage: 20GB HDD Free Space.
 
-### 3.2 Software
+## 3.2 Software
 
 **License Limited Software**
 - Machine Virtualisation: [MWare Workstation 12 Pro](http://www.vmware.com/products/workstation/workstation-evaluation.html)
@@ -140,7 +140,7 @@ the following command (which will set the layout to Danish):*
 setxkbmap dk
 ```
 
-# 5.1 Cloning the git repository to USRLAN-CLIENT
+## 5.1 Cloning the git repository to USRLAN-CLIENT
 
 First start “terminal“ and install git to USRLAN-CLIENT as shown in
 [Illustration 8](#illustration8).
@@ -187,7 +187,7 @@ default configuration is shown in [Illustration 10](#illustration10).
 Change the first network adapter to `NAT` and disable the rest by unchecking
 `Connect at power on` as shown in  [Illustration 11](#illustration11). Do not
 disable the first network adapter in the VM though it could seem like it needs
-to be from [Illustration 11](#illustration11).
+to be.
 
 <a name="illustration11">
 ![VM configuration for router NAT access](../images/routers-nat-net.png)
@@ -261,6 +261,15 @@ where:
  * `*ip of router*` is the specific IP address for the router as seen in
    [Illustration 12](#illustration12).
 
+The first time an SSH connection is made, ssh will ask if the machine connected
+to is actually the right machine as shown in [Illustration 13](#illustration13)
+
+<a name="illustration13">
+![First time SSH connection](../images/ssh-first-time-connection.png)
+</a>
+> Illustration 12: First time SSH connection
+
+
 Then login to the router through the Virtual Machine console to load and commit
 the configuration file.
 
@@ -284,7 +293,9 @@ commit
 ```
 **When the configuration has been loaded the password will be `test12`.**
 
-## 5.5 SERVER-SRVLAN-DNS
+To shut down the router exit to the JunOS prompt, type `halt -p`, and wait.
+
+## 5.3 SERVER-SRVLAN-DNS
 
 * Copy the configuration files into the server
 * Install dnsmasq
@@ -309,7 +320,7 @@ Copy the configuration files from the host to the virtual machine:
 scp -r server-srvlan-dns/* root@192.168.206.132:/.
 ```
 
-## 5.6 SERVER-DMZ-WEB
+## 5.4 SERVER-DMZ-WEB
 
  * Install Nginx
  * Enable the Nginx service
@@ -333,7 +344,7 @@ Copy the default HTML page to the server.
 scp -r server-dmz-web/* root@192.168.206.130:/.
 ```
 
-## 5.7 Network setup
+# 6 Network setup
 
 This configuration uses the WMWare LAN segment feature. The LAN segments
 created in the first virtual machine area available to the rest as well.
