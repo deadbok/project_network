@@ -380,7 +380,7 @@ sudo update-rc.d nginx enable
 sudo update-rc.d ssh enable
 
 # Start the services now
-service nginx start
+sudo service nginx start
 sudo service ssh start
 
 # Copy the configuration file from CLIENT-USRLAN.
