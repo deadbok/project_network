@@ -374,7 +374,7 @@ the updated configuration files into place.
 sudo apt-get install nginx ssh
 
 # Enable nginx at boot
-update-rc.d nginx enable
+sudo update-rc.d nginx enable
 
 # Enable ssh at boot
 sudo update-rc.d ssh enable
