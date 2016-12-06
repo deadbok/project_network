@@ -129,9 +129,9 @@ these machines.
 
 # 5 Configuring the virtual machines
 
-The USRLAN-CLIENT client is connected to the internet to clone this
+The CLIENT-USRLAN client is connected to the internet to clone this
 repository, the configuration files needed for the servers and routers
-are then copied from USRLAN-CLIENT to the individual machines.
+are then copied from CLIENT-USRLAN to the individual machines.
 
 *You can switch the keyboard layout from the Ubuntu Desktop terminal by entering
 the following command (which will set the layout to Danish):*
@@ -154,9 +154,9 @@ sudo update-rc.d ssh enable
 sudo service ssh start
 ```
 
-## 5.1 Cloning the git repository to USRLAN-CLIENT
+## 5.1 Cloning the git repository to CLIENT-USRLAN
 
-First start “terminal“ and install git to USRLAN-CLIENT as shown in
+First start “terminal“ and install git to CLIENT-USRLAN as shown in
 [Illustration 8](#illustration8).
 
 ```bash
@@ -164,11 +164,11 @@ First start “terminal“ and install git to USRLAN-CLIENT as shown in
 ```
 
 <a name="illustration8">
-![Installing git in USRLAN-CLIENT](../images/install-client-git.png)
+![Installing git in CLIENT-USRLAN](../images/install-client-git.png)
 </a>
-> Illustration 8: Installing git on USRLAN-CLIENT
+> Illustration 8: Installing git on CLIENT-USRLAN
 
-then clone this repository onto the USRLAN-CLIENT and change in to the directory
+then clone this repository onto the CLIENT-USRLAN and change in to the directory
 where the repository was cloned as shown in
 [Illustration 9](#illustration9).
 
@@ -181,16 +181,16 @@ where the repository was cloned as shown in
 <a name="illustration9">
 ![Cloning the project_network repository](../images/clone-client-git.png)
 </a>
-> Illustration 9: Installing git on USRLAN-CLIENT
+> Illustration 9: Installing git on CLIENT-USRLAN
 
 ## 5.2 Configure the routers
 
 The goal of these steps are to get the routers online on the NAT network,
 temporarily, to copy the configuration files from the git repository now
-present on USRLAN-CLIENT.
+present on CLIENT-USRLAN.
 
 First the default network setup of the Virtual Machine is changed to allow
-a connection to the same NAT network that USRLAN-CLIENT is connected to. The
+a connection to the same NAT network that CLIENT-USRLAN is connected to. The
 default configuration is shown in [Illustration 10](#illustration10).
 
 <a name="illustration10">
@@ -351,7 +351,7 @@ sudo scp -r *user name*@*CLIENT-USRLAN ip*:~/project_network/server-srvlan-dns/*
 where:
  * `*user name*` is the user name entered when creating the Virtual Machine.
  * `*CLIENT-USRLAN ip*` is the Virtual Machine IP address obtained as in
-   [5.3 CLIENT-USRLAN IP address](#5.3 CLIENT-USRLAN IP address).
+   [5.3 CLIENT-USRLAN IP address](#53 CLIENT-USRLAN IP address).
 
 The result of the copy process should look something like [Illustration 15](#illustration15)
 
@@ -389,7 +389,7 @@ sudo scp -r *user name*@*CLIENT-USRLAN ip*:~/project_network/server-dmz-web/* /.
 where:
  * `*user name*` is the user name entered when creating the Virtual Machine.
  * `*CLIENT-USRLAN ip*` is the Virtual Machine IP address obtained as in
-   [5.3 CLIENT-USRLAN IP address](#5.3 CLIENT-USRLAN IP address).
+   [5.3 CLIENT-USRLAN IP address](#53 CLIENT-USRLAN IP address).
 
 After copying the configuration files shutdown the machine by typing
 `sudo poweroff`.
