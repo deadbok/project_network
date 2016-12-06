@@ -184,8 +184,10 @@ default configuration is shown in [Illustration 10](#illustration10).
 </a>
 > Illustration 10: Default router network configuration
 
-Change the first network adapter to `NAT` ad disable the rest by unchecking
-`Connect at power on` as shown in  [Illustration 11](#illustration11).
+Change the first network adapter to `NAT` and disable the rest by unchecking
+`Connect at power on` as shown in  [Illustration 11](#illustration11). Do not
+disable the first network adapter in the VM though it could seem like it needs
+to be from [Illustration 11](#illustration11).
 
 <a name="illustration11">
 ![VM configuration for router NAT access](../images/routers-nat-net.png)
@@ -209,32 +211,62 @@ New Password: type password here
 Retype new password: retype password here
 
 # Set the interface to DHCP
-set interfaces ge-0/0/1 unit 0 family inet dhcp
+set interfaces ge-0/0/0 unit 0 family inet dhcp
 
 # Delete the interface from the untrusted zone.
-delete security zones security-zone untrust interfaces ge-0/0/1.0
+delete security zones security-zone untrust interfaces ge-0/0/0.0
 
 # Put the interface in the trusted zone and allow all services
-set security zones security-zone trust interfaces ge-0/0/1.0 host-inbound-traffic system-services all
+set security zones security-zone trust interfaces ge-0/0/0 host-inbound-traffic system-services all
 
 # Allow all protocols
-set security zones security-zone trust interfaces ge-0/0/1.0 host-inbound-traffic protocols  all
+set security zones security-zone trust interfaces ge-0/0/0 host-inbound-traffic protocols  all
 
 # Commit the changes
 commit
+
+# Exit edit mode
+exit
+
+# Exit the cli
+exit
+
+# Show the important part of the connection information for ge-0/0/0
+ifconfig | grep -A2 ge-0/0/0
 ```
 
-To push the project configuration file to the router first find its IP address:
+The last command will print the IP of the interface ge-0/0/0 that will be used
+to push the configuration file to the router.
 
+<a name="illustration12">
+![IP address of the router on the NAT network](../images/routers-get-nat-ip.png)
+</a>
+> Illustration 12: IP address of the router on the NAT network
 
-## 5.3 ROUTER-INT
-To copy the configuration file onto the router when configured for SSH
+The specific configuration file for each router is located here:
+
+ * ROUTER-INT: `./router-int-conf/router-int.conf`
+ * ROUTER-EXT: `./router-ext-conf/router-ext.conf`
+
+To push the configuration file onto the router when configured for SSH
 access do like this:
 
 ```bash
-scp router-int.conf root@172.16.189.133:~/.
+scp *router configuration file* root@*ip of router*:~/pn.conf
 ```
-Then on the router login and load the configuration:
+where:
+
+ * `*router configuration file*` is the specific configuration file for the
+   router as mentioned above.
+ * `*ip of router*` is the specific IP address for the router as seen in
+   [Illustration 12](#illustration12).
+
+Then login to the router through the Virtual Machine console to load and commit
+the configuration file.
+
+*It is possible to login through SSH but the connection to the router will
+hang after the commit operation because of the new interface configurations
+loaded by the router.*
 
 ```bash
 # Enter the cli
@@ -245,38 +277,12 @@ edit
 
 # Load the configuration that has just been copied to the
 # router.
-load override router-int.conf
+load override pn.conf
 
 # Commit the new configuration
 commit
 ```
-**When the configuration has been loaded the password will be `test12`**
-
-## 5.4 ROUTER-EXT
-To copy the configuration file onto the router when configured for SSH
-access do like this:
-
-```bash
-scp router-ext.conf root@172.16.189.133:~/.
-```
-
-Then on the router login and load the configuration:
-
-```bash
-# Enter the cli
-cli
-
-# Enter edit mode
-edit
-
-# Load the configuration that has just been copied to the
-# router.
-load override router-ext.conf
-
-# Commit the new configuration
-commit
-```
-**When the configuration has been loaded the password will be `test12`**
+**When the configuration has been loaded the password will be `test12`.**
 
 ## 5.5 SERVER-SRVLAN-DNS
 
