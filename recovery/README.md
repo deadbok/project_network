@@ -61,7 +61,7 @@ configuration at this time.
 
 ## 4.1 CLIENT-USRLAN (Ubuntu 16.04LTS Desktop Client)
 
-For the Ubuntu Desktop, but also for the Server versions use the VMWare 
+For the Ubuntu Desktop, but also for the Server versions use the VMWare
 VM Typical settings, since it sets everything needed by default, even
 the network interface to NAT, which is an essential feature needed in
 the OS install and later software/service installation.
@@ -96,7 +96,7 @@ to all of the OS and hardware. Machine settings should resemble those in
 
 ## 4.2 SERVER-SRVLAN-DNS & SERVER-DMZ-WEB (Ubuntu 16.04LTS Server)
 
-The Ubuntu Server Virtual Machines will follow the same steps as those 
+The Ubuntu Server Virtual Machines will follow the same steps as those
 of creating the  [**CLIENT-USRLAN**](#illustration1), except using the
 downloaded Ubuntu Server ISO as the operating system source
 (as shown in [Illustration 5](#illustration5)).
@@ -121,15 +121,16 @@ or [Illustration 7](#illustration7).
 
 ## 4.3 ROUTER-EXT & ROUTER-INT (JunOS vSRX 12.1)
 
-The downloaded files has a VMWare “.ovf” file that you can open from the VMWare file menu.
-Rename the machine “ROUTER-EXT”. Create a full clone of the “ROUTER-EXT” machine and name
-that one “ROUTER-INT”. The JunOS operating system is already installed on the image,
-therefore there are no OS installation steps for these machines.
+Open the downloaded `junos-vsrx-12.1X47-D15.4-domestic.ovf` using the VMWare
+file menu. Rename the machine “ROUTER-EXT”. Create a full clone of the
+“ROUTER-EXT” machine and name that one “ROUTER-INT”. The JunOS operating system
+is already installed on the image, there are no further OS installation steps for
+these machines.
 
 # 5 Configuring the virtual machines
 
 The USRLAN-CLIENT client is connected to the internet to clone this
-repository, the configurations files needed for the servers and routers
+repository, the configuration files needed for the servers and routers
 are then copied from USRLAN-CLIENT to the individual machines.
 
 # 5.1 Cloning the git repository to USRLAN-CLIENT
@@ -151,10 +152,11 @@ then clone this repository onto the USRLAN-CLIENT as shown in
 
 ## 5.2 Configuring the routers for SSH
 
-The goal of these steps are to get the routers online on the NAT network
-temporarily to copy the configuration files from the git repositry now
+The goal of these steps are to get the routers online on the NAT network,
+temporarily, to copy the configuration files from the git repository now
 present on USRLAN-CLIENT.
 
+**These steps are to be carried out on bort ROUTER-EXT and ROUTER-INT.**
 
 ```bash
 #Enter the cli
@@ -169,25 +171,25 @@ New Password: type password here
 Retype new password: retype password here
 
 # Set the interface to DHCP
-set interfaces ge-0/0/3 unit 0 family inet dhcp
+set interfaces ge-0/0/1 unit 0 family inet dhcp
 
 # Delete the interface from the untrusted zone.
-delete security zones security-zone untrust interfaces ge-0/0/3.0
+delete security zones security-zone untrust interfaces ge-0/0/1.0
 
 # Put the interface in the trusted zone and allow all services
-set security zones security-zone trust interfaces ge-0/0/3.0 host-inbound-traffic system-services all
+set security zones security-zone trust interfaces ge-0/0/1.0 host-inbound-traffic system-services all
 
 # Allow all protocols
-set security zones security-zone trust interfaces ge-0/0/3.0 host-inbound-traffic protocols  all
+set security zones security-zone trust interfaces ge-0/0/1.0 host-inbound-traffic protocols  all
 
 # Commit the changes
 commit
 ```
-## 5.3 CLIENT-USRLAN (Ubuntu Desktop Client)
 
-The client boots of the ISO image and does not need any configuration.
+To push the project configuration file to the router first find its IP address:
 
-## 5.4 ROUTER-INT
+
+## 5.3 ROUTER-INT
 To copy the configuration file onto the router when configured for SSH
 access do like this:
 
@@ -212,7 +214,7 @@ commit
 ```
 **When the configuration has been loaded the password will be `test12`**
 
-## 5.5 ROUTER-EXT
+## 5.4 ROUTER-EXT
 To copy the configuration file onto the router when configured for SSH
 access do like this:
 
@@ -238,7 +240,7 @@ commit
 ```
 **When the configuration has been loaded the password will be `test12`**
 
-## 5.6 SERVER-SRVLAN-DNS
+## 5.5 SERVER-SRVLAN-DNS
 
 * Copy the configuration files into the server
 * Install dnsmasq
@@ -263,7 +265,7 @@ Copy the configuration files from the host to the virtual machine:
 scp -r server-srvlan-dns/* root@192.168.206.132:/.
 ```
 
-## 5.7 SERVER-DMZ-WEB
+## 5.6 SERVER-DMZ-WEB
 
  * Install Nginx
  * Enable the Nginx service
@@ -287,7 +289,7 @@ Copy the default HTML page to the server.
 scp -r server-dmz-web/* root@192.168.206.130:/.
 ```
 
-## 5.8 Network setup
+## 5.7 Network setup
 
 This configuration uses the WMWare LAN segment feature. The LAN segments
 created in the first virtual machine area available to the rest as well.
