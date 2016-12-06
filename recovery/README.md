@@ -1,6 +1,6 @@
 # Recovery Documentation
 ## Project network
-**Version 0.9.2**
+**Version 0.9.3**
 
 # 1 Introduction
 
@@ -175,7 +175,26 @@ The goal of these steps are to get the routers online on the NAT network,
 temporarily, to copy the configuration files from the git repository now
 present on USRLAN-CLIENT.
 
-**These steps are to be carried out on bort ROUTER-EXT and ROUTER-INT.**
+First the default network setup of the Virtual Machine is changed to allow
+a connection to the same NAT network that USRLAN-CLIENT is connected to. The
+default configuration is shown in [Illustration 10](#illustration10).
+
+<a name="illustration10">
+![Default router network configuration](../images/router-initial-net.png)
+</a>
+> Illustration 10: Default router network configuration
+
+Change the first network adapter to `NAT` ad disable the rest by unchecking
+`Connect at power on` as shown in  [Illustration 11](#illustration11).
+
+<a name="illustration11">
+![VM configuration for router NAT access](../images/router-initial-net.png)
+</a>
+> Illustration 11: VM configuration for router NAT access
+
+The default login for the new routers are `root` and an empty password.
+
+**These steps are to be carried out on both ROUTER-EXT and ROUTER-INT.**
 
 ```bash
 #Enter the cli
@@ -314,12 +333,12 @@ This configuration uses the WMWare LAN segment feature. The LAN segments
 created in the first virtual machine area available to the rest as well.
 
 Open the settings for the virtual machine and navigate to the LAN
-segment settings as shown in [Illustration 4](#illustration4).
+segment settings as shown in [Illustration 12](#illustration12).
 
-<a name="illustration4">
+<a name="illustration12">
 ![Creating the LAN segments](../images/vmware-LAN-segments.png)
 </a>
-> Illustration 4: Creating the LAN segments
+> Illustration 12: Creating the LAN segments
 
 Set the interfaces of the virtual machines according to [Table 1](#table1):
 
