@@ -1,6 +1,6 @@
 # Recovery Documentation
 ## Project network
-**Version 0.9.3**
+**Version 0.9.6**
 
 # 1 Introduction
 
@@ -140,6 +140,20 @@ the following command (which will set the layout to Danish):*
 setxkbmap dk
 ```
 
+Enable remote SSH connections by installing the service.
+
+```bash
+
+# Install ssh
+sudo apt-get install ssh
+
+# Enable ssh at boot
+sudo update-rc.d ssh enable
+
+# Start the services now
+sudo service ssh start
+```
+
 ## 5.1 Cloning the git repository to USRLAN-CLIENT
 
 First start “terminal“ and install git to USRLAN-CLIENT as shown in
@@ -169,7 +183,7 @@ where the repository was cloned as shown in
 </a>
 > Illustration 9: Installing git on USRLAN-CLIENT
 
-## 5.2 Configuring the routers for SSH
+## 5.2 Configure the routers
 
 The goal of these steps are to get the routers online on the NAT network,
 temporarily, to copy the configuration files from the git repository now
@@ -193,6 +207,8 @@ to be.
 ![VM configuration for router NAT access](../images/routers-nat-net.png)
 </a>
 > Illustration 11: VM configuration for router NAT access
+
+### 5.2.1 Configure the routers for DHCP on the NAT
 
 The default login for the new routers are `root` and an empty password.
 
@@ -243,6 +259,8 @@ to push the configuration file to the router.
 </a>
 > Illustration 12: IP address of the router on the NAT network
 
+### 5.2.2 Push the configuration file to the router via SSH
+
 The specific configuration file for each router is located here:
 
  * ROUTER-INT: `./router-int-conf/router-int.conf`
@@ -269,7 +287,9 @@ to is actually the right machine as shown in [Illustration 13](#illustration13)
 </a>
 > Illustration 13: First time SSH connection
 
-Then login to the router through the Virtual Machine console to load and commit
+### 5.2.2 Commit the configuration file on the router
+
+Login to the router through the Virtual Machine console to load and commit
 the configuration file.
 
 *It is possible to login through SSH but the connection to the router will
@@ -294,66 +314,85 @@ commit
 
 To shut down the router exit to the JunOS prompt, type `halt -p`, and wait.
 
-## 5.3 Server IP address ##
+## 5.3 CLIENT-USRLAN IP address ##
 
-In the following steps the IP address of the Virtual Machine servers are needed.
-These can be obtained by login in to the server and typing `ip addr` as shown in
-[Illustration 14](#illustration14)
+In the following steps the IP address of CLIENT-USRLAN is needed. The IP address
+ can be obtained by logging in to the CLIENT-USRLAN and typing `ip addr` in a
+ terminal window as shown in [Illustration 14](#illustration14)
 
 <a name="illustration14">
-![Getting the IP address of an Ubuntu server VM on the NAT](../images/server-get-ip.png)
+![Getting the IP address of CLIENT-USRLAN on the NAT](../images/client-get-ip.png)
 </a>
-> Illustration 14: Getting the IP address of an Ubuntu server VM on the NAT
+> Illustration 14: Getting the IP address of CLIENT-USRLAN on the NAT
 
 ## 5.4 SERVER-SRVLAN-DNS
 
-* Connect via SSH
-* Copy the configuration files onto the server
-* Install dnsmasq
-* Enable the dnsmasq service
-
-Install dnsmasq on the virtual machine:
+Install dnsmasq and ssh in the Virtual Machine console and copy the updated
+configuration files into place.
 
 ```bash
-# Install dnsmasq
-apt-get install dnsmasq
+
+# Install dnsmasq and ssh
+sudo apt-get install dnsmasq ssh
 
 # Enable dnsmasq at boot
-update-rc.d dnsmasq enable
+sudo update-rc.d dnsmasq enable
 
-# Start the service now
-service dnsmasq start
+# Enable ssh at boot
+sudo update-rc.d ssh enable
+
+# Start the services now
+sudo service dnsmasq start
+sudo service ssh start
+
+# Copy the configuration file from CLIENT-USRLAN.
+sudo scp -r *user name*@*CLIENT-USRLAN ip*:~/project_network/server-srvlan-dns/* /.
 ```
+where:
+ * `*user name*` is the user name entered when creating the Virtual Machine.
+ * `*CLIENT-USRLAN ip*` is the Virtual Machine IP address obtained as in
+   [5.3 CLIENT-USRLAN IP address](#5.3 CLIENT-USRLAN IP address).
 
-Copy the configuration files from the host to the virtual machine:
+The result of the copy process should look something like [Illustration 15](#illustration15)
 
-```bash
-scp -r server-srvlan-dns/* root@192.168.206.132:/.
-```
+<a name="illustration14">
+![Output after copying the configuration files](../images/server-dns-copy-config.png)
+</a>
+> Illustration 14: Output after copying the configuration files
+
+After copying the configuration files shutdown the machine by typing
+`sudo poweroff`.
 
 ## 5.5 SERVER-DMZ-WEB
 
- * Install Nginx
- * Enable the Nginx service
-
-Install dnsmasq on the virtual machine:
+Install the Nginx web server and ssh in the Virtual Machine console and copy
+the updated configuration files into place.
 
 ```bash
-# Install dnsmasq
-apt-get install nginx
 
-# Enable dnsmasq at boot
+# Install nginx and ssh
+sudo apt-get install nginx ssh
+
+# Enable nginx at boot
 update-rc.d nginx enable
 
-# Start the service now
+# Enable ssh at boot
+sudo update-rc.d ssh enable
+
+# Start the services now
 service nginx start
-```
+sudo service ssh start
 
-Copy the default HTML page to the server.
-
-```bash
-scp -r server-dmz-web/* root@192.168.206.130:/.
+# Copy the configuration file from CLIENT-USRLAN.
+sudo scp -r *user name*@*CLIENT-USRLAN ip*:~/project_network/server-dmz-web/* /.
 ```
+where:
+ * `*user name*` is the user name entered when creating the Virtual Machine.
+ * `*CLIENT-USRLAN ip*` is the Virtual Machine IP address obtained as in
+   [5.3 CLIENT-USRLAN IP address](#5.3 CLIENT-USRLAN IP address).
+
+After copying the configuration files shutdown the machine by typing
+`sudo poweroff`.
 
 # 6 Network setup
 
