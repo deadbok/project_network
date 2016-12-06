@@ -133,6 +133,13 @@ The USRLAN-CLIENT client is connected to the internet to clone this
 repository, the configuration files needed for the servers and routers
 are then copied from USRLAN-CLIENT to the individual machines.
 
+*You can switch the keyboard layout from the Ubuntu Desktop terminal by entering
+the following command (which will set the layout to Danish):*
+
+```bash
+setxkbmap dk
+```
+
 # 5.1 Cloning the git repository to USRLAN-CLIENT
 
 First start “terminal“ and install git to USRLAN-CLIENT as shown in
