@@ -415,7 +415,7 @@ Set the interfaces of the virtual machines according to [Table 1](#table1):
 |-------------------|:---------------:|:-----------:|:---------------:|:-------------:|
 | CLIENT-USRLAN     | USRLAN          |     *nc*    |      *nc*       |      *nc*     |
 | ROUTER-INT        | USRLAN          |    SRVLAN   | Router internal |      *nc*     |
-| ROUTER-EXT        | Router internal |     DMZ     |      *nc*       |      *nc*     |
+| ROUTER-EXT        | Router internal |     DMZ     |       NAT       |      *nc*     |
 | SERVER-SRVLAN-DNS | SRVLAN          |     *nc*    |      *nc*       |      *nc*     |
 | SERVER-DMZ-WEB    | DMZ             |     *nc*    |      *nc*       |      *nc*     |
 
