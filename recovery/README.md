@@ -73,7 +73,7 @@ create a Typical custom machine (as shown in [Illustration 1](#illustration1)).
 </a>
 > Illustration 1: Creating a Typical custom virtual machine
 
-Next select the downloaded Ubunto Desktop ISO as the operating system
+Next select the downloaded Ubuntu Desktop ISO as the operating system
 source (as shown in [Illustration 2](#illustration2)).
 
 <a name="illustration2">
@@ -183,6 +183,9 @@ where the repository was cloned as shown in
 </a>
 > Illustration 9: Installing git on CLIENT-USRLAN
 
+After this is done leav e the client as it is for now and go on to the
+next step.
+
 ## 5.2 Configure the routers
 
 The goal of these steps are to get the routers online on the NAT network,
@@ -260,6 +263,8 @@ to push the configuration file to the router.
 > Illustration 12: IP address of the router on the NAT network
 
 ### 5.2.2 Push the configuration file to the router via SSH
+
+*These steps are carries out back in CLIENT-USRLAN.*
 
 The specific configuration file for each router is located here:
 
