@@ -57,7 +57,8 @@ curriculum resources.
 # 4 Creating The Virtual Machines And Install Their OSs
 
 When creating the virtual machines do not bother with the network
-configuration at this time.
+configuration at this time. Set the first interface of each virtual
+machine to NAT.
 
 ## 4.1 CLIENT-USRLAN (Ubuntu 16.04LTS Desktop Client)
 
@@ -264,12 +265,15 @@ to push the configuration file to the router.
 
 ### 5.2.2 Push the configuration file to the router via SSH
 
-*These steps are carries out back in CLIENT-USRLAN.*
+*These steps are carried out back in CLIENT-USRLAN.*
 
-The specific configuration file for each router is located here:
+The specific configuration file for each router is located here (on 
+CLIENT-USRLAN):
 
  * ROUTER-INT: `./router-int-conf/router-int.conf`
  * ROUTER-EXT: `./router-ext-conf/router-ext.conf`
+ 
+
 
 To push the configuration file onto the router when configured for SSH
 access do like this:
@@ -346,10 +350,6 @@ sudo update-rc.d dnsmasq enable
 # Enable ssh at boot
 sudo update-rc.d ssh enable
 
-# Start the services now
-sudo service dnsmasq start
-sudo service ssh start
-
 # Copy the configuration file from CLIENT-USRLAN.
 sudo scp -r *user name*@*CLIENT-USRLAN ip*:~/project_network/server-srvlan-dns/* /.
 ```
@@ -383,10 +383,6 @@ sudo update-rc.d nginx enable
 
 # Enable ssh at boot
 sudo update-rc.d ssh enable
-
-# Start the services now
-sudo service nginx start
-sudo service ssh start
 
 # Copy the configuration file from CLIENT-USRLAN.
 sudo scp -r *user name*@*CLIENT-USRLAN ip*:~/project_network/server-dmz-web/* /.
@@ -427,3 +423,5 @@ Set the interfaces of the virtual machines according to [Table 1](#table1):
 *nc*: not connected.
 
 > Table 1: Virtual machine interface connections.
+
+
