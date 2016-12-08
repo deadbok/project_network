@@ -60,6 +60,19 @@ When creating the virtual machines do not bother with the network
 configuration at this time. Set the first interface of each virtual
 machine to NAT.
 
+For the ROUTER-EXT connection to the Internet to work, the IP address
+of the NAT network in VMware have to be configured to match the IP
+address in the configuration of ROUTER-EXT.
+
+Go to *Edit* -> *Virtual Network Editor* and change the Subnet IP to 
+`192.168.206.0` as shown in [Illustration 1](#illustration1)).
+
+<a name="illustration1">
+![NAT network VMware address](../images/vmware-nat-ip.png)
+</a>
+> Illustration 1: NAT network VMware address
+`
+
 ## 4.1 CLIENT-USRLAN (Ubuntu 16.04LTS Desktop Client)
 
 For the Ubuntu Desktop, but also for the Server versions use the VMWare
@@ -67,42 +80,42 @@ VM Typical settings, since it sets everything needed by default, even
 the network interface to NAT, which is an essential feature needed in
 the OS install and later software/service installation.
 When setting up this machine in VMWare,
-create a Typical custom machine (as shown in [Illustration 1](#illustration1)).
-
-<a name="illustration1">
-![Creating a Typical custom Virtual Machine](../images/vmware-typical-machine.png)
-</a>
-> Illustration 1: Creating a Typical custom virtual machine
-
-Next select the downloaded Ubuntu Desktop ISO as the operating system
-source (as shown in [Illustration 2](#illustration2)).
+create a Typical custom machine (as shown in [Illustration 2](#illustration2)).
 
 <a name="illustration2">
+![Creating a Typical custom Virtual Machine](../images/vmware-typical-machine.png)
+</a>
+> Illustration 2: Creating a Typical custom virtual machine
+
+Next select the downloaded Ubuntu Desktop ISO as the operating system
+source (as shown in [Illustration 3](#illustration3)).
+
+<a name="illustration3">
 ![Selecting operating system source](../images/install-ubuntu-desktop.png)
 </a>
-> Illustration 2: Selecting operating system source
+> Illustration 3: Selecting operating system source
 
 Setup will request adding a name for the machine, disk size, user and
 password. By filling in the user information a less privileged user will
 be created. When logged in as this user you can temporarily change to
 the `root` account, which is the superuser of the system that has access
 to all of the OS and hardware. Machine settings should resemble those in
-[Illustration 3](#illustration3).
+[Illustration 4](#illustration4).
 
-<a name="illustration3">
+<a name="illustration4">
 ![VM Settings - CLIENT-USRLAN](../images/client-vm-settings.png)
 </a>
-> Illustration 3: VM Settings - CLIENT-USRLAN
+> Illustration 4: VM Settings - CLIENT-USRLAN
 
 
 ## 4.2 SERVER-SRVLAN-DNS & SERVER-DMZ-WEB (Ubuntu 16.04LTS Server)
 
 The Ubuntu Server Virtual Machines will follow the same steps as those
-of creating the  [**CLIENT-USRLAN**](#illustration1), except using the
+of creating the  [**CLIENT-USRLAN**](#illustration2), except using the
 downloaded Ubuntu Server ISO as the operating system source
 (as shown in [Illustration 5](#illustration5)).
 
-<a name="illustration2">
+<a name="illustration5">
 ![Selecting operating system source](../images/install-ubuntu-server.png)
 </a>
 > Illustration 5: Selecting operating system source
@@ -211,6 +224,11 @@ to be.
 ![VM configuration for router NAT access](../images/routers-nat-net.png)
 </a>
 > Illustration 11: VM configuration for router NAT access
+
+
+### 5.2.1 Change IP in the ROUTER-EXT configuration file ###
+
+
 
 ### 5.2.1 Configure the routers for DHCP on the NAT
 
