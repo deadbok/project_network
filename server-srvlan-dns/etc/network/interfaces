@@ -11,8 +11,8 @@ iface lo inet loopback
 #iface eth0 init dhcp
 
 # The primary network interface
-allow-hotplug eth0
-iface eth0 inet static
+allow-hotplug ens33
+iface ens33 inet static
 	address 192.168.1.2
 	netmask 255.255.255.0
 	gateway 192.168.1.1
