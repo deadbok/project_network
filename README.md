@@ -9,13 +9,13 @@ servers from our virtual desktop.
 
 ### Level 2 Diagram
 <a name="illustration1">
-![Level 2 Diagram](images/topology L2 week 48.png)
+![Level 2 Diagram](images/topology_L2_week_48.png)
 </a>
 > Illustration 1: Network Layer 2 Diagram
 
 ### Level 3 Diagram
 <a name="illustration2">
-![Level 3 Diagram](images/topology L3 week 48.png)
+![Level 3 Diagram](images/topology_L3_week_48.png)
 </a>
 > Illustration 2: Network Layer 3 Diagram
 
