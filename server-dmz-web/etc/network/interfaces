@@ -8,8 +8,8 @@ auto lo
 iface lo inet loopback
 
 # The primary network interface
-allow-hotplug eth0
-iface eth0 inet static
+allow-hotplug ens33
+iface ens33 inet static
 	address 10.0.0.2
 	netmask 255.255.255.0
 	gateway 10.0.0.1
