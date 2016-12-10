@@ -8,12 +8,16 @@ servers from our virtual desktop.
 # 2. Overview
 
 ### Level 2 Diagram
-
+<a name="illustration1">
 ![Level 2 Diagram](images/topology L2 week 48.png)
+</a>
+> Illustration 1: Network Layer 2 Diagram
 
 ### Level 3 Diagram
-
+<a name="illustration2">
 ![Level 3 Diagram](images/topology L3 week 48.png)
+</a>
+> Illustration 2: Network Layer 3 Diagram
 
 # 3. Performance
 
@@ -61,21 +65,18 @@ URSLAN
 
 At the top level is a make file with the following rules:
 
- * router-conf: Build the router configuration files from the Markdown
- "              formatted versions.
+ * router-conf: Build the router configuration files from the Markdown formatted versions.
  * recovery: Build a .pdf version of the recovery documentation.
  * all: Build all.
  
 To invoke any of these, use the make command:
 
-	make *rule name*
+`make *rule name*`
  
-# 9. Futher reading
+# 10. Futher reading
 
  * [SRX Configuration example using fully qualified domain names in security policies](https://kb.juniper.net/InfoCenter/index?page=content&id=KB20994&actp=search)
  * [Example: Configuring Security Zones and Policies for SRX Series](https://www.juniper.net/documentation/en_US/junos12.1x46/topics/example/security-srx-device-zone-and-policy-configuring.html)
  * [Juniper SRX Port Forwarding / Destination NAT](https://doittherightway.wordpress.com/2013/03/07/juniper-srx-port-forwarding-destination-nat/) 
  * [SRX Getting Started - Configure DNS](https://kb.juniper.net/InfoCenter/index?page=content&id=KB15656&actp=search)
  * [Understanding NAT Rule Sets and Rules](http://www.juniper.net/documentation/en_US/junos12.1x47/topics/concept/nat-security-rule-set-and-rule-understanding.html)
- 
- 
