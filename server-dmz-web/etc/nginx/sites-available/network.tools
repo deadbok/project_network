@@ -15,7 +15,7 @@ server {
     ##
     # Server Folders
     ##
-    root /var/www/network.tools/_site;
+    root /var/www/network.tools;
     default_type "text/html";
     try_files  $uri $uri.html $uri/index.html index.html;
     autoindex off;
