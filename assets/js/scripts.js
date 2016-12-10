@@ -5,7 +5,7 @@ $(document).ready( function () {
 
 	// Load readme content
 	$.ajax({
-		url: 'https://rawgit.com/deadbok/project_network/'+path+'/README.md',
+		url: 'https://raw.githubusercontent.com/deadbok/project_network/'+path+'/README.md',
 		dataType: 'text',
 		success: function(data) {
 
@@ -14,7 +14,8 @@ $(document).ready( function () {
 
 			// Show html
 			$("#md-file").html(converter.makeHtml(data));
-
+			$('#md-file').anchorific();
 		}
 	});
+
 });

@@ -24,6 +24,7 @@
 		<script type="text/javascript" src="../assets/js/showdown.min.js"></script>
 		<script type="text/javascript" src="../assets/js/showdown-table.min.js"></script>
 		<script type="text/javascript" src="../assets/js/showdown-github.min.js"></script>
+		<script type="text/javascript" src="../assets/js/anchorific.min.js"></script>
 
 		<script type="text/javascript" src="../assets/js/scripts.js"></script>
 	</head>
@@ -31,6 +32,9 @@
 
 	<!-- body -->
 	<body>
+
+		<!-- Fork on GitHub Ribbon -->
+		<span id="forkongithub"><a href="https://github.com/deadbok/project_network">Fork on GitHub</a></span>
 
 		<!-- header -->
 		<header class="clearfix">
@@ -61,8 +65,17 @@
 
 		<!-- main -->
 		<main>
-			<div class="pagewidth">
+			<div class="pagewidth clearfix">
+
+				<!-- .info -->
+				<div class="info">
+					<nav class='anchorific'></nav>
+				</div>
+				<!-- /.info -->
+
+				<!-- Render Markdown file in HTML -->
 				<div id="md-file" class="master recovery"></div>
+
 			</div>
 		</main>
 		<!-- /main -->
@@ -70,7 +83,9 @@
 		<!-- footer -->
 		<footer>
 			<div class="pagewidth">
+
 				<p>Project Network - Erhvervsakademiet Lillebælt - IT Technology - 2016 Autumn</p>
+
 			</div>
 		</footer>
 		<!-- /footer -->
