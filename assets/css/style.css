@@ -34,7 +34,7 @@ body {
 }
 
 body {
-	font: 16px/1.25em 'Roboto Condensed', Arial, sans-serif;
+	font: 16px/1.5em 'Roboto Condensed', Arial, sans-serif;
 	color: #222;
 }
 
@@ -55,6 +55,8 @@ h1,h2,h3,h4,h5,h6 {
 }
 h1 {
 	font-size: 2em;
+	border-bottom: 1px solid rgba(0,0,0,.1);
+	margin-bottom: .5em;
 }
 h2 {
 	font-size: 1.75em;
@@ -66,8 +68,9 @@ h4 {
 	font-size: 1.25em;
 }
 
-/* Code */
-code {
+/* Blockquote, Code, Pre */
+code,
+blockquote {
 	background: rgba(0,0,0,.04);
 	padding: .5em;
 	border-radius: 3px;
@@ -77,19 +80,52 @@ code {
 	display: inline-block;
 	vertical-align: middle;
 }
+blockquote {
+	display: block;
+	padding-bottom: 0;
+}
+pre {
+	margin-bottom: 1em;
+}
 
 /* Lists */
 ul {
-	margin-left: 2.5em;
+	margin: 0 0 1em 2.5em;
 	list-style: disc;
 }
 li {
 	line-height: 1.5em;
 }
 
+/* Paragraphs */
 p {
-	margin: 0 0 .25em;
+	margin: 0 0 .75em;
 }
+
+/* Tables */
+table {
+	width: 100%;
+	max-width: 100%;
+}
+table code {
+	background: none;
+	font-size: inherit;
+	font-family: inherit;
+	padding: 0;
+}
+table p {
+	margin: .5em 0;
+}
+tr {
+	border-bottom: 1px solid rgba(0,0,0,.1);
+}
+tr:nth-of-type(2n+0) {
+	background: rgba(0,0,0,.05);
+}
+tr, td {
+	vertical-align: middle;
+}
+
 
 /*****************
 * LAYOUT
