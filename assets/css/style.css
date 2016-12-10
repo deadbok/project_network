@@ -216,9 +216,15 @@ header a {
 	padding: 0;
 }
 .main-nav li {
-	margin: 0 0 0 10px;
+	margin: 0 0 0 5px;
 	padding: 0;
 	display: inline-block;
+}
+.main-nav a {
+	padding: 1em;
+}
+.main-nav a.active {
+	background: #222;
 }
 
 /* Content
