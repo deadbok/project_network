@@ -1,6 +1,6 @@
 # Server Configuration 1st Draft
 
-![Simplified HTTP Request](./images/network-diagram-http.png)
+![Simplified HTTP Request](../images/network-diagram-http.png)
 
 Install Nginx using `apt-get install`
 ```bash
