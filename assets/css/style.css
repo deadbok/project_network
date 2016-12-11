@@ -46,7 +46,7 @@ img {
 /* Links
 *****************/
 a {
-	color: #444;
+	color: #006E79;
 	text-decoration: none;
 }
 a:hover {
@@ -71,6 +71,9 @@ h3 {
 }
 h4 {
 	font-size: 1.25em;
+}
+h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
+	color: inherit;
 }
 
 /* Blockquote, Code, Pre */
@@ -194,15 +197,18 @@ header {
 	left: 0;
 	width: 100%;
 	padding: 1em 0;
-	background: #666;
+	background: #eee;
 	color: #fff;
+	box-shadow: 0 -1px 1px 1px rgba(0, 0, 0,.3);
 }
 header a {
-	color: #fff;
+	color: #333;
 }
 
 /* Logo */
 .logo {
+	font-family: 'Roboto Condensed Bold', Arial, sans-serif;
+	letter-spacing: .1em;
 	float: left;
 }
 
@@ -221,17 +227,58 @@ header a {
 	display: inline-block;
 }
 .main-nav a {
-	padding: 1em;
+	padding: 1.1em;
 }
 .main-nav a.active {
-	background: #222;
+	background: #fff;
+	color: #006E79;
+}
+.main-nav a.active:hover {
+	color: #000;
 }
 
-/* Content
+/* Alignment */
+.left {
+	text-align: left;
+}
+.right {
+	text-align: right;
+}
+
+/* Main
 *****************/
 main {
 	margin: 80px 0 60px;
 }
+
+/* Project Details
+*****************/
+.project-details {
+	padding: 4% 0 6%;
+	border-bottom: 3px solid rgba(0,0,0,.2);
+	margin-bottom: 2%;
+	font-size: .875em;
+}
+.project-details .left,
+.project-details .right {
+	display: inline-block;
+	width: 49%;
+	vertical-align: middle;
+}
+.project-details a {
+	color: #006E79;
+}
+.eal-logo {
+	max-width: 120px;
+}
+
+/* Content
+*****************/
+.content {
+
+}
+
+
 
 /* Footer
 *****************/
@@ -243,6 +290,12 @@ footer {
 	width: 100%;
 	font-size: .75em;
 	padding: 1em 0;
+}
+footer p {
+	display: inline-block;
+	width: 49%;
+	margin: 0;
+	padding: 0;
 }
 
 /*****************
