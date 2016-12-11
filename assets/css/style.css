@@ -302,6 +302,20 @@ footer p {
 * MISC
 *****************/
 
+/* Ajax Error */
+body.ajax-not-working .content .info,
+body.ajax-not-working .content #md-file {
+	display: none;
+}
+.ajax-error {
+	display: none;
+	color: #fff;
+	background: #f00;
+	padding: 3em;
+	border-radius: 5px;
+	text-align: center;
+}
+
 /*****************
 * MEDIA QUERIES
 *****************/
