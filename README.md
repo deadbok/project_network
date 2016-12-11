@@ -61,7 +61,7 @@ URSLAN
  * `router-*`: Configuration files for the routers
  * `server-*`: Configuration files for the servers
  
-# 9. Building additional files or updating them.
+# 9. Building additional files or updating them
 
 At the top level is a make file with the following rules:
 
