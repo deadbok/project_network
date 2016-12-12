@@ -1,8 +1,8 @@
-# Server Configuration 2nd Draft
+# Server Configuration
 
 ![Simplified HTTP Request](../images/network-diagram-http.png)
 
-# 1 Software
+# 1. Software
 
 ## 1.1 Nginx
 
@@ -21,7 +21,7 @@ sudo apt-get install git
 git clone https://git@github.com/deadbok/project_network.git
 ```
 
-# 2 Files
+# 2. Server Configuration and Website Files
 
 - Nginx Server Blocks:`project_network/server-dmz-web/etc/nginx/sites-available/network.tools`
 - Network Interfaces: `project_network/server-dmz-web/etc/network/interfaces`
@@ -31,8 +31,8 @@ git clone https://git@github.com/deadbok/project_network.git
 
 
 ```bash
-# Copy Site Files
-sudo cp -r project_network/server-dmz-web/var/www/* /var/www/
+# Create Folder Symbolic Link
+sudo ls -sr project_network/server-dmz-web/var/www/network.tools /var/www/network.tools
 
 # Copy Nginx Server Block
 sudo cp project_network/server-dmz-web/etc/nginx/sites-available/network.tools /etc/nginx/sites-available/
