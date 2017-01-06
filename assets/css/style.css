@@ -189,7 +189,7 @@ tr, td {
 	width: 73%;
 }
 
-/* Fix scroll-to achor link
+/* Fix scroll-to achor link */
 .md-file a[name]:not([href^='#']) {
 	display: block;
 }

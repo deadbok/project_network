@@ -1,14 +1,16 @@
 $(document).ready( function () {
 
-	var target	= '.md-file';
+	var repository		= 'project_network';
+	var target			= '.md-file';
 	var error_message	= '.ajax-error';
+
 
 	// Get element class as path variable
 	var path = $(target).attr('id').split(' ').join('/');
 
 	// Load readme content
 	$.ajax({
-		url: 'https://raw.githubusercontent.com/deadbok/project_network/'+path+'/README.md',
+		url: 'https://raw.githubusercontent.com/deadbok/'+repository+'/'+path+'/README.md',
 		dataType: 'text',
 		success: function(data) {
 
