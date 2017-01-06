@@ -184,9 +184,14 @@ tr, td {
 	margin-left: 2em;
 }
 
-#md-file {
+.md-file {
 	float: left;
 	width: 73%;
+}
+
+/* Fix scroll-to achor link
+.md-file a[name]:not([href^='#']) {
+	display: block;
 }
 
 /* Header
@@ -304,7 +309,7 @@ footer p {
 
 /* Ajax Error */
 body.ajax-not-working .content .info,
-body.ajax-not-working .content #md-file {
+body.ajax-not-working .content .md-file {
 	display: none;
 }
 .ajax-error {
