@@ -1,5 +1,16 @@
 /*****************
-* CSS RESETS
+* TABLE OF CONTENTS
+*
+* 1. CSS RESETS
+* 2. FONTS
+* 3. GENERAL STYLES
+* 4. LAYOUT
+* 5. MISC
+* 6. MEDIA QUERIES
+/*****************
+
+/*****************
+* 1. CSS RESETS
 * Author: http://meyerweb.com/eric/tools/css/reset/
 * Version v2.0 | 20110126
 * License: none (public domain)
@@ -18,7 +29,32 @@ blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}
 table{border-collapse:collapse;border-spacing:0}
 
 /*****************
-* GENERAL STYLES
+* 2. FONTS
+*****************/
+@font-face {
+    font-family: 'Oxygen Mono';
+    src: url('../fonts/oxygenmono-regular-webfont.woff2') format('woff2'),
+         url('../fonts/oxygenmono-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Roboto Condensed Bold';
+    src: url('../fonts/robotocondensed-bold-webfont.woff2') format('woff2'),
+         url('../fonts/robotocondensed-bold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Roboto Condensed';
+    src: url('../fonts/robotocondensed-regular-webfont.woff2') format('woff2'),
+         url('../fonts/robotocondensed-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/*****************
+* 3. GENERAL STYLES
 *****************/
 
 /* All Selectors/Elements */
@@ -144,9 +180,8 @@ tr, td {
 	vertical-align: middle;
 }
 
-
 /*****************
-* LAYOUT
+* 4. LAYOUT
 *****************/
 
 /* Default Page Width */
@@ -154,16 +189,6 @@ tr, td {
 	width: 1024px;
 	max-width: 96%;
 	margin: 0 auto; /* Center element */
-}
-
-/* Clear Fix */
-.clearfix:before,
-.clearfix:after {
-	content: "";
-	display: table;
-}
-.clearfix:after {
-	clear: both;
 }
 
 .info {
@@ -184,9 +209,14 @@ tr, td {
 	margin-left: 2em;
 }
 
-#md-file {
+.md-file {
 	float: left;
 	width: 73%;
+}
+
+/* Fix scroll-to achor link */
+.md-file a[name]:not([href^='#']) {
+	display: block;
 }
 
 /* Header
@@ -278,8 +308,6 @@ main {
 
 }
 
-
-
 /* Footer
 *****************/
 footer {
@@ -293,18 +321,56 @@ footer {
 }
 footer p {
 	display: inline-block;
-	width: 49%;
 	margin: 0;
 	padding: 0;
 }
+footer .left {
+	float: left;
+}
+footer .right {
+	float: right;
+}
+
+/* Clear Fix */
+.clearfix:before,
+.clearfix:after {
+	content: "";
+	display: table;
+}
+.clearfix:after {
+	clear: both;
+}
 
 /*****************
-* MISC
+* 5. MISC
 *****************/
+
+/* Ajax Error */
+body.ajax-not-working .content .info,
+body.ajax-not-working .content .md-file {
+	display: none;
+}
+.ajax-error {
+	display: none;
+	color: #fff;
+	background: #f00;
+	padding: 3em;
+	border-radius: 5px;
+	text-align: center;
+}
 
 /*****************
-* MEDIA QUERIES
+* 6. MEDIA QUERIES
 *****************/
-@media screen and (min-width:800px) {
-
+@media screen and (max-width:820px) {
+	.info,
+	.md-file {
+		float: none;
+		width: 100%;
+	}
+	.info {
+		border-right: none;
+		border-bottom: 3px solid rgba(0,0,0,.2);
+		padding: 0 0 2% 0;
+	}
 }
