@@ -64,7 +64,7 @@ For the ROUTER-EXT connection to the Internet to work, the IP address
 of the NAT network in VMware have to be configured to match the IP
 address in the configuration of ROUTER-EXT.
 
-Go to *Edit* -> *Virtual Network Editor* and change the Subnet IP to 
+Go to *Edit* -> *Virtual Network Editor* and change the Subnet IP to
 `192.168.206.0` as shown in [Illustration 1](#illustration1)).
 
 <a name="illustration1">
@@ -225,11 +225,6 @@ to be.
 </a>
 > Illustration 11: VM configuration for router NAT access
 
-
-### 5.2.1 Change IP in the ROUTER-EXT configuration file ###
-
-
-
 ### 5.2.1 Configure the routers for DHCP on the NAT
 
 The default login for the new routers are `root` and an empty password.
@@ -285,12 +280,12 @@ to push the configuration file to the router.
 
 *These steps are carried out back in CLIENT-USRLAN.*
 
-The specific configuration file for each router is located here (on 
+The specific configuration file for each router is located here (on
 CLIENT-USRLAN):
 
  * ROUTER-INT: `./router-int-conf/router-int.conf`
  * ROUTER-EXT: `./router-ext-conf/router-ext.conf`
- 
+
 
 
 To push the configuration file onto the router when configured for SSH
@@ -413,6 +408,10 @@ where:
 After copying the configuration files shutdown the machine by typing
 `sudo poweroff`.
 
+For more info please check `server-dmz-web` folder.
+Online Version:
+[https://github.com/deadbok/project_network/tree/master/server-dmz-web](https://github.com/deadbok/project_network/tree/master/server-dmz-web)
+
 # 6 Network setup
 
 This configuration uses the WMWare LAN segment feature. The LAN segments
@@ -441,5 +440,3 @@ Set the interfaces of the virtual machines according to [Table 1](#table1):
 *nc*: not connected.
 
 > Table 1: Virtual machine interface connections.
-
-
