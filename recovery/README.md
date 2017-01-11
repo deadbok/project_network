@@ -111,7 +111,7 @@ to all of the OS and hardware. Machine settings should resemble those in
 ## 4.2 SERVER-SRVLAN-DNS & SERVER-DMZ-WEB (Ubuntu 16.04LTS Server)
 
 The Ubuntu Server Virtual Machines will follow the same steps as those
-of creating the  [**CLIENT-USRLAN**](#illustration2), except using the
+of creating the [**CLIENT-USRLAN**](#illustration2), except using the
 downloaded Ubuntu Server ISO as the operating system source
 (as shown in [Illustration 5](#illustration5)).
 
@@ -174,7 +174,7 @@ First start “terminal“ and install git to CLIENT-USRLAN as shown in
 [Illustration 8](#illustration8).
 
 ```bash
-  sudo apt install git
+sudo apt install git
 ```
 
 <a name="illustration8">
@@ -187,8 +187,8 @@ where the repository was cloned as shown in
 [Illustration 9](#illustration9).
 
 ```bash
-  git clone https://github.com/deadbok/project_network
-  cd project_network
+git clone https://github.com/deadbok/project_network
+cd project_network
 ```
 
 
@@ -216,7 +216,7 @@ default configuration is shown in [Illustration 10](#illustration10).
 > Illustration 10: Default router network configuration
 
 Change the first network adapter to `NAT` and disable the rest by unchecking
-`Connect at power on` as shown in  [Illustration 11](#illustration11). Do not
+`Connect at power on` as shown in [Illustration 11](#illustration11). Do not
 disable the first network adapter in the VM though it could seem like it needs
 to be.
 
@@ -253,7 +253,7 @@ delete security zones security-zone untrust interfaces ge-0/0/0.0
 set security zones security-zone trust interfaces ge-0/0/0 host-inbound-traffic system-services all
 
 # Allow all protocols
-set security zones security-zone trust interfaces ge-0/0/0 host-inbound-traffic protocols  all
+set security zones security-zone trust interfaces ge-0/0/0 host-inbound-traffic protocols all
 
 # Commit the changes
 commit
