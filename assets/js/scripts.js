@@ -1,6 +1,9 @@
 $(document).ready( function () {
 
+	// Define Repository Name
 	var repository		= 'project_network';
+
+	// Define HTML element classes
 	var target			= '.md-file';
 	var error_message	= '.ajax-error';
 
