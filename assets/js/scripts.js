@@ -1,5 +1,12 @@
 $(document).ready( function () {
 
+	////////////////////////////
+	// GET Markdown File - AJAX
+	////////////////////////////
+
+	// Define GitHub User
+	var user			= 'deadbok';
+
 	// Define Repository Name
 	var repository		= 'project_network';
 
@@ -13,9 +20,12 @@ $(document).ready( function () {
 
 	// Load readme content
 	$.ajax({
-		url: 'https://raw.githubusercontent.com/deadbok/'+repository+'/'+path+'/README.md',
+		url: 'https://raw.githubusercontent.com/'+user+'/'+repository+'/'+path+'/README.md',
+		type: 'GET',
 		dataType: 'text',
 		success: function(data) {
+			// Display Headings List and Markdown File
+			$('.info, .md-file').fadeIn(100);
 
 			// Convert readme from markdown to html
 			var converter = new showdown.Converter({extensions: ['table', 'github']});
@@ -25,16 +35,30 @@ $(document).ready( function () {
 			// Show headings list (auto-generated)
 			$(target).anchorific();
 		},
-		error: function() {
+		error: function(statusCode, errorThrown) {
 			// Add .ajax-not-working class to body
 			$('body').addClass('ajax-not-working');
+
 			// Add error message to .ajax-error element
-			$(error_message).fadeIn().html('<h4>Seems like your network settings are not able to connect to the internet.</h4>');
+			if (statusCode.status == 0) {
+				$(error_message).fadeIn().html('<h4>Seems like something went wrong!</h4><p>Check to see if you have <strong>Internet Access</strong></p>');
+				console.log('AJAX Error! Response: ' + statusCode.status);
+			} else if (statusCode.status == 404) {
+				$(error_message).fadeIn().html('<h4>Seems like something went wrong!</h4><p>Check to see if the <strong>README.md</strong> file exists or if the <strong>.md-file</strong> element has the correct IDs</p>');
+				console.log('AJAX Error! Response: ' + statusCode.status);
+			}
 		}
 	});
 
+	////////////////////////////
+	// Animat Scoll-To Action
+	////////////////////////////
+
 	// Get <header> height
 	var header = $('header').outerHeight(true);
+
+	// Fix Body position issue caused by Fixed Header
+	$('.main').css('margin-top', header)
 
 	// Prevent default jump-to action for anchor links
 	// Animate scroll if link statrs with '#' character

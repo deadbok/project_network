@@ -74,6 +74,10 @@ body {
 	color: #222;
 }
 
+strong {
+	font-family: 'Roboto Condensed Bold';
+}
+
 img {
 	max-width: 100%;
 	height: auto;
@@ -136,6 +140,9 @@ pre {
 	max-width: 100%;
 	overflow: auto;
 }
+pre code {
+	display: block;
+}
 
 /* Lists */
 ul {
@@ -192,6 +199,7 @@ tr, td {
 }
 
 .info {
+	display: none;
 	float: left;
 	width: 25%;
 	margin-right: 2%;
@@ -210,6 +218,7 @@ tr, td {
 }
 
 .md-file {
+	display: none;
 	float: left;
 	width: 73%;
 }
@@ -265,6 +274,7 @@ header a {
 }
 .main-nav a.active:hover {
 	color: #000;
+	text-decoration: none;
 }
 
 /* Alignment */
@@ -278,7 +288,8 @@ header a {
 /* Main
 *****************/
 main {
-	margin: 80px 0 60px;
+	/* Default margin - Fixes issue with fixed Header and Footer */
+	margin: 50px 0;
 }
 
 /* Project Details
@@ -357,6 +368,18 @@ body.ajax-not-working .content .md-file {
 	padding: 3em;
 	border-radius: 5px;
 	text-align: center;
+}
+.ajax-error h4 {
+	font-size: 2em;
+	line-height: 1em;
+	padding-bottom: .5em;
+	border-bottom: 1px solid #fff;
+	margin-bottom: .5em;
+}
+.ajax-error p {
+	line-height: 1em;
+	padding: 0;
+	margin: 0;
 }
 
 /*****************
