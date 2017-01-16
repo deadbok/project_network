@@ -62,11 +62,12 @@ $(document).ready( function () {
 	// Animat Scoll-To Action
 	////////////////////////////
 
-	// Get <header> height
+	// Get <header> and <footer> height
 	var header = $('header').outerHeight(true);
+	var footer = $('footer').outerHeight(true);
 
-	// Fix Body position issue caused by Fixed Header
-	$('.main').css('margin-top', header)
+	// Fix Body position issue caused by Fixed Header and Footer
+	$('body').css({paddingTop : header, paddingBottom : footer})
 
 	// Prevent default jump-to action for anchor links
 	// Animate scroll if link statrs with '#' character
