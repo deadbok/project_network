@@ -9,6 +9,13 @@ $(document).ready( function () {
 	$('body').fadeIn(200);
 
 	////////////////////////////
+	// Mobile Navigation
+	////////////////////////////
+	$('.menu-icon').on( 'click', function() {
+		$(this).toggleClass('menu-active');
+	});
+
+	////////////////////////////
 	// GET Markdown File - AJAX
 	////////////////////////////
 

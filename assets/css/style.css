@@ -254,7 +254,37 @@ header a {
 /* Navigation */
 .menu {
 	float: right;
+	position: relative;
 }
+.menu .menu-icon {
+	opacity: 0;
+	visibility: hidden;
+	position: absolute;
+	top: 50%;
+	right: 1em;
+	display: block;
+	width: 48px;
+	height: 48px;
+	transform: translateY(-50%);
+	cursor: pointer;
+}
+.menu .menu-icon span {
+	position: absolute;
+	top: 50%;
+	right: 50%;
+	background: #000;
+	display: block;
+	width: 24px;
+    height: 2px;
+	transform: translate(50%,-50%);
+}
+.menu .menu-icon .two {
+	margin-top: -6px;
+}
+.menu .menu-icon .three {
+	margin-top: 6px;
+}
+
 .main-nav {
 	list-style: none;
 	margin: 0;
@@ -267,13 +297,12 @@ header a {
 }
 .main-nav a {
 	padding: 1.1em;
+	border: 2px solid transparent;
 }
+.main-nav a:hover,
 .main-nav a.active {
-	background: #fff;
 	color: #006E79;
-}
-.main-nav a.active:hover {
-	color: #000;
+	border-bottom-color: #006E79;
 	text-decoration: none;
 }
 
@@ -375,9 +404,78 @@ body.ajax-not-working .content .md-file {
 	margin: 0;
 }
 
+/* Transformations
+*****************/
+.menu .menu-icon,
+.menu .menu-icon span,
+.menu .main-nav {
+	-webkit-transition: all .2s linear;
+    -moz-transition: all .2s linear;
+    -o-transition: all .2s linear;
+    transition: all .2s linear;
+}
+
 /*****************
 * 6. MEDIA QUERIES
 *****************/
+@media screen and (max-width:920px) {
+	header,
+	footer {
+		position: relative;
+	}
+	body {
+		padding: 0 !important;
+	}
+	.logo {
+		position: relative;
+		z-index: 1;
+	}
+	.menu .menu-icon {
+		opacity: 1;
+		visibility: visible;
+	}
+	.menu {
+		position: absolute;
+		top: 0;
+		right: 0;
+		height: 100%;
+		width: 100%;
+		z-index: 0;
+	}
+	.menu-icon.menu-active + .main-nav {
+		opacity: 1;
+		visibility: visible;
+	}
+	.menu-icon.menu-active .one {
+		display: none;
+	}
+	.menu-icon.menu-active .two {
+		transform: rotate(-45deg) translate(-12px,28px);
+		top: 0;
+	}
+	.menu-icon.menu-active .three {
+		transform: rotate(45deg) translate(20px,3px);
+    	top: 0;
+	}
+
+	.menu .main-nav {
+		opacity: 0;
+		visibility: hidden;
+		position: absolute;
+		top: 100%;
+		right: 0;
+		width: 100%;
+		background: #eee;
+		max-width: 100%;
+	}
+	.menu .main-nav li {
+		display: inline-block;
+	}
+	.menu .main-nav a {
+		padding: 1em;
+		display: block;
+	}
+}
 @media screen and (max-width:820px) {
 	.info,
 	.md-file {
