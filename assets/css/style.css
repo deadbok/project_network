@@ -404,7 +404,7 @@ header .pagewidth {
 /* Project Details
 *****************/
 .project-details {
-	padding: 4% 0 6%;
+	padding: 3% 0 4%;
 	border-bottom: 3px solid rgba(0,0,0,.2);
 	margin-bottom: 2%;
 	font-size: .875em;
@@ -414,6 +414,9 @@ header .pagewidth {
 	display: inline-block;
 	width: 49%;
 	vertical-align: middle;
+}
+.project-details h1 {
+	margin: 0;
 }
 .project-details a {
 	color: #006E79;
