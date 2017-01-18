@@ -68,6 +68,32 @@ body {
 	width: 100%;
 	max-width: 100%;
 }
+body:before {
+	position: absolute;
+	display: block;
+	content: 'Enable JavaScript... Live a little!';
+	top: 50%;
+	left: 50%;
+	color: #333;
+	background: #ef9a9a;
+	width: 61.8%;
+	font-size: 1.5em;
+	line-height: 1em;
+	padding: 6.18em 2em;
+	border-radius: 5px;
+	text-align: center;
+	transform: translate(-50%,-50%);
+	-webkit-animation: fadein 3s; /* Safari, Chrome and Opera > 12.1 */
+       -moz-animation: fadein 3s; /* Firefox < 16 */
+        -ms-animation: fadein 3s; /* Internet Explorer */
+         -o-animation: fadein 3s; /* Opera < 12.1 */
+            animation: fadein 3s;
+
+}
+body.loading:before,
+body.ready:before {
+	display: none !important;
+}
 
 body {
 	font: 16px/1.5em 'Roboto Condensed', Arial, sans-serif;
@@ -231,6 +257,7 @@ tr, td {
 /* Header
 *****************/
 header {
+	display: none;
 	position: fixed;
 	top: 0;
 	left: 0;
@@ -307,9 +334,36 @@ header {
 }
 .main-nav a:hover,
 .main-nav a.active {
-	background: #006E79;
-	color: #fff;
+	position: relative;
 	text-decoration: none;
+}
+.main-nav a:before,
+.main-nav a:after {
+	opacity: 0;
+	visibility: hidden;
+	position: absolute;
+	color: rgba(0,0,0,.5);
+	left: 3px;
+	top: 50%;
+	transform: translateY(-50%);
+	font-size: 1.25em;
+}
+.main-nav a:hover:before,
+.main-nav a.active:before {
+	content:'[';
+}
+.main-nav a:hover:after,
+.main-nav a.active:after {
+	left: auto;
+	right: 3px;
+	content:']';
+}
+.main-nav a:hover:before,
+.main-nav a:hover:after,
+.main-nav a.active:before,
+.main-nav a.active:after {
+	opacity: 1;
+	visibility: visible;
 }
 
 /* Alignment */
@@ -341,15 +395,16 @@ header {
 	max-width: 120px;
 }
 
-/* Content
+/* Main
 *****************/
-.content {
-
+main {
+	display: none;
 }
 
 /* Footer
 *****************/
 footer {
+	display: none;
 	background: #fff;
 	position: fixed;
 	bottom: 0;
@@ -378,6 +433,14 @@ footer .right {
 }
 .clearfix:after {
 	clear: both;
+}
+
+/* Display Content
+*****************/
+body.ready header,
+body.ready main,
+body.ready footer {
+	display: block;
 }
 
 /*****************
@@ -410,15 +473,61 @@ body.ajax-not-working .content .md-file {
 	margin: 0;
 }
 
-/* Transformations
+/* Animations
 *****************/
 .menu .menu-icon,
 .menu .menu-icon span,
-.menu .main-nav {
-	-webkit-transition: all .2s linear;
-    -moz-transition: all .2s linear;
-    -o-transition: all .2s linear;
-    transition: all .2s linear;
+.menu .main-nav,
+.main-nav a:before,
+.main-nav a:after {
+	-webkit-transition: all .2s ease-in;
+    -moz-transition: all .2s ease-in;
+    -o-transition: all .2s ease-in;
+    transition: all .2s ease-in;
+}
+
+@keyframes fadein {
+	0%   {opacity: 0;}
+    25%  {opacity: 0;}
+    50%  {opacity: 0;}
+    75%  {opacity: 0;}
+    100% {opacity: 1;}
+}
+
+/* Firefox < 16 */
+@-moz-keyframes fadein {
+	0%   {opacity: 0;}
+    25%  {opacity: 0;}
+    50%  {opacity: 0;}
+    75%  {opacity: 0;}
+    100% {opacity: 1;}
+}
+
+/* Safari, Chrome and Opera > 12.1 */
+@-webkit-keyframes fadein {
+	0%   {opacity: 0;}
+    25%  {opacity: 0;}
+    50%  {opacity: 0;}
+    75%  {opacity: 0;}
+    100% {opacity: 1;}
+}
+
+/* Internet Explorer */
+@-ms-keyframes fadein {
+	0%   {opacity: 0;}
+    25%  {opacity: 0;}
+    50%  {opacity: 0;}
+    75%  {opacity: 0;}
+    100% {opacity: 1;}
+}
+
+/* Opera < 12.1 */
+@-o-keyframes fadein {
+	0%   {opacity: 0;}
+    25%  {opacity: 0;}
+    50%  {opacity: 0;}
+    75%  {opacity: 0;}
+    100% {opacity: 1;}
 }
 
 /*****************

@@ -1,12 +1,19 @@
+"use strict";
+$(window).on('load', function(){
+
+	$('body').addClass('loading');
+
+});
+
 $(document).ready( function () {
 
 	////////////////////////////
 	// Start stuff
 	////////////////////////////
 
-	// Make Everything fadeIn
 	// Fixes some visual issues by displaying the content only when it is ready
-	$('body').fadeIn(200);
+	$('body').removeClass('loading');
+	$('body').addClass('ready');
 
 	////////////////////////////
 	// Mobile Navigation
