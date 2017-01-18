@@ -60,6 +60,7 @@ table{border-collapse:collapse;border-spacing:0}
 /* All Selectors/Elements */
 * {
 	box-sizing: border-box;
+	-webkit-font-smoothing: subpixel-antialiased;
 }
 
 /* html and body */
@@ -124,6 +125,8 @@ a:hover {
 *****************/
 h1,h2,h3,h4,h5,h6 {
 	line-height: 1.75em;
+	word-spacing: -.075em;
+    letter-spacing: .035em;
 }
 h1 {
 	font-size: 2em;
@@ -144,20 +147,21 @@ h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
 }
 
 /* Blockquote, Code, Pre */
-code,
 blockquote {
+	font-family: 'Oxygen Mono', monospace;
+	display: block;
+    font-size: .71em;
+    padding: 0;
+    margin: 0 0 2em;
+}
+code {
 	background: rgba(0,0,0,.04);
 	padding: .5em;
 	border-radius: 3px;
 	font-family: 'Oxygen Mono', monospace;
 	font-size: .9em;
-	/* temporary fix */
 	display: inline-block;
 	vertical-align: middle;
-}
-blockquote {
-	display: block;
-	padding-bottom: 0;
 }
 pre {
 	margin-bottom: 1em;
@@ -250,6 +254,20 @@ tr, td {
 	width: 73%;
 }
 
+.md-file h1 {
+	margin-top: 1.5em;
+}
+.md-file h1:first-of-type {
+	margin-top: 0;
+	line-height: 1em;
+	margin-bottom: .75em;
+	padding-bottom: .75em;
+}
+.md-file h2 {
+	margin: 1.5em 0 1em;
+	line-height: 1em;
+}
+
 /* Fix scroll-to achor link */
 .md-file a[name]:not([href^='#']) {
 	display: block;
@@ -333,9 +351,11 @@ header .pagewidth {
 	line-height: 1em;
 }
 .main-nav a {
-	color: #000;
+	color: #333;
 	padding: 1.25em;
 	display: block;
+	word-spacing: -.075em;
+    letter-spacing: .025em;
 }
 .main-nav a:hover,
 .main-nav a.active {
@@ -347,7 +367,7 @@ header .pagewidth {
 	opacity: 0;
 	visibility: hidden;
 	position: absolute;
-	color: rgba(0,0,0,.5);
+	color: rgba(0, 110, 121,.4);
 	left: 3px;
 	top: 50%;
 	transform: translateY(-50%);
@@ -416,7 +436,7 @@ footer {
 	left: 0;
 	width: 100%;
 	font-size: .75em;
-	padding: 1em 0;
+	padding: .25em 0;
 }
 footer p {
 	display: inline-block;
