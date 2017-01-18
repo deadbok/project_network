@@ -89,7 +89,6 @@ body:before {
         -ms-animation: fadein 3s; /* Internet Explorer */
          -o-animation: fadein 3s; /* Opera < 12.1 */
             animation: fadein 3s;
-
 }
 body.loading:before,
 body.ready:before {
@@ -108,6 +107,7 @@ strong {
 img {
 	max-width: 100%;
 	height: auto;
+	margin: 1em 0 0;
 }
 
 /* Links
@@ -187,6 +187,7 @@ li {
 /* Paragraphs */
 p {
 	margin: 0 0 .75em;
+	text-align: justify;
 }
 
 /* Tables */
@@ -259,13 +260,14 @@ tr, td {
 }
 .md-file h1:first-of-type {
 	margin-top: 0;
-	line-height: 1em;
+	line-height: 1.25em;
 	margin-bottom: .75em;
 	padding-bottom: .75em;
 }
-.md-file h2 {
+.md-file h2,
+.md-file h3 {
 	margin: 1.5em 0 1em;
-	line-height: 1em;
+	line-height: 1.25em;
 }
 
 /* Fix scroll-to achor link */
