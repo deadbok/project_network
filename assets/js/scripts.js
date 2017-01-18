@@ -48,7 +48,7 @@ $(document).ready( function () {
 		dataType: 'text',
 		success: function(data) {
 			// Display Headings List and Markdown File
-			$('.info, .md-file').fadeIn(100);
+			$('.info, .md-file').fadeIn(200);
 
 			// Convert readme from markdown to html
 			var converter = new showdown.Converter({extensions: ['table', 'github']});
@@ -64,10 +64,10 @@ $(document).ready( function () {
 
 			// Add error message to .ajax-error element
 			if (statusCode.status == 0) {
-				$(error_message).fadeIn(100).html('<h4>Seems like something went wrong!</h4><p>Check to see if you have <strong>Internet Access</strong></p>');
+				$(error_message).fadeIn(200).html('<h4>Seems like something went wrong!</h4><p>Check to see if you have <strong>Internet Access</strong></p>');
 				console.log('AJAX Error! Response: ' + statusCode.status);
 			} else if (statusCode.status == 404) {
-				$(error_message).fadeIn(100).html('<h4>Seems like something went wrong!</h4><p>Check to see if the <strong>README.md</strong> file exists or if the <strong>.md-file</strong> element has the correct IDs</p>');
+				$(error_message).fadeIn(200).html('<h4>Seems like something went wrong!</h4><p>Check to see if the <strong>README.md</strong> file exists or if the <strong>.md-file</strong> element has the correct IDs</p>');
 				console.log('AJAX Error! Response: ' + statusCode.status);
 			}
 		}
