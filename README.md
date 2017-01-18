@@ -26,7 +26,17 @@ Build list of heading from Markdown file using [Anchorific](https://github.com/r
 <nav class='anchorific'></nav>
 ```
 
-Add your custom information in `assets/js/scripts.js`h<div class="md-file"></div>
+Add your custom information in `assets/js/scripts.js`
+
+```js
+// Define GitHub User
+var user			= 'GitHub_User';
+
+// Define Repository Name
+var repository		= 'GitHub_Repo_Name';
+
+// Define HTML element classes
+var target			= '.md-file'; // <div class="md-file"></div>
 var error_message	= '.ajax-error'; // <div class="ajax-error"></div>
 
 // Get element class as path variable
