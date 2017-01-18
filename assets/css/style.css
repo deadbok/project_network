@@ -268,6 +268,9 @@ header {
 	box-shadow: 0 0 1px 1px rgba(0, 110, 121,.25);
 	border-bottom: 3px solid #006E79;
 }
+header .pagewidth {
+	position: relative;
+}
 
 /* Logo */
 .logo {
@@ -533,7 +536,7 @@ body.ajax-not-working .content .md-file {
 /*****************
 * 6. MEDIA QUERIES
 *****************/
-@media screen and (max-width:920px) {
+@media screen and (max-width:1160px) {
 	header,
 	footer {
 		position: relative;
@@ -579,10 +582,14 @@ body.ajax-not-working .content .md-file {
 		position: absolute;
 		top: 100%;
 		right: 0;
+		padding: .5em 1em;
 		width: 100%;
 		background: #fff;
 		max-width: 100%;
 		margin-top: 3px;
+		box-shadow: 0 0 1px 1px rgba(0, 110, 121,.25);
+		border: 3px solid #006E79;
+		border-width: 0 3px 3px 3px;
 	}
 	.menu .main-nav li {
 		display: inline-block;
