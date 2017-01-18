@@ -467,11 +467,12 @@ footer .right {
 
 /* Display Content
 *****************/
+/* Handled by JavaScript
 body.ready header,
 body.ready main,
 body.ready footer {
 	display: block;
-}
+}*/
 
 /*****************
 * 5. MISC
