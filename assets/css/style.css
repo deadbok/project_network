@@ -114,6 +114,7 @@ img {
 a {
 	color: #006E79;
 	text-decoration: none;
+	outline: none;
 }
 a:hover {
 	text-decoration: underline;
@@ -219,7 +220,7 @@ tr, td {
 
 /* Default Page Width */
 .pagewidth {
-	width: 1024px;
+	width: 1160px;
 	max-width: 96%;
 	margin: 0 auto; /* Center element */
 }
@@ -283,6 +284,7 @@ header .pagewidth {
 	color: #fff;
 	padding: 1em;
 	background: #006E79;
+	text-decoration: none;
 }
 
 /* Navigation */
@@ -537,13 +539,6 @@ body.ajax-not-working .content .md-file {
 * 6. MEDIA QUERIES
 *****************/
 @media screen and (max-width:1160px) {
-	header,
-	footer {
-		position: relative;
-	}
-	body {
-		padding: 0 !important;
-	}
 	.logo {
 		position: relative;
 		z-index: 1;
@@ -600,6 +595,13 @@ body.ajax-not-working .content .md-file {
 	}
 }
 @media screen and (max-width:820px) {
+	header,
+	footer {
+		position: relative;
+	}
+	body {
+		padding: 0 !important;
+	}
 	.info,
 	.md-file {
 		float: none;
