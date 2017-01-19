@@ -1,8 +1,8 @@
 # Recovery Documentation
 ## Project network
-**Version 0.9.6**
+**Version 0.9.7**
 
-# 1 Introduction
+# 1. Introduction
 
 This document describes the steps needed to create project network.
 *It is assumed that you have a Windows 7/8/10 or a desktop Linux
@@ -15,7 +15,7 @@ The latest version of this document is available at:
 Project web page:
 [https://deadbok.github.io/project_network/](https://deadbok.github.io/project_network/)
 
-# 2 Overview
+# 2. Overview
 
 This is the overall steps in recreating the system from scratch.
 - Software sources
@@ -27,7 +27,7 @@ This is the overall steps in recreating the system from scratch.
 - Configure the external server for HTTP services
 - Configure internal machine for local DNS resolution
 
-# 3 System Requirements
+# 3. System Requirements
 
 Based on the current status in recovery and testing stages, the following
 hardware and software are a minimum requirement in order to run the
@@ -35,13 +35,13 @@ network. All mentioned software resources are pointing to official
 manufacturer download locations and official Lillebaelt Academy
 curriculum resources.
 
-## 3.1 Hardware
+## 3.1. Hardware
 
 - CPU: Dual-Core Processor with multi-threading and virtualisation.
 - Memory: 8GB DDR3 Dual-Channel.
 - Storage: 20GB HDD Free Space.
 
-## 3.2 Software
+## 3.2. Software
 
 **License Limited Software**
 - Machine Virtualisation: [MWare Workstation 12 Pro](http://www.vmware.com/products/workstation/workstation-evaluation.html)
@@ -54,7 +54,7 @@ curriculum resources.
 - Network Servers: [Ubuntu 16.04LTS Server Installer ISO](https://www.ubuntu.com/download/server/thank-you?version=16.04.1&architecture=amd64)
 - Network Client: [Ubuntu 16.04LTS Desktop Installer ISO](https://www.ubuntu.com/download/desktop/contribute?version=16.04.1&architecture=amd64)
 
-# 4 Creating The Virtual Machines And Install Their OSs
+# 4. Creating The Virtual Machines And Install Their OSs
 
 When creating the virtual machines do not bother with the network
 configuration at this time. Set the first interface of each virtual
@@ -73,7 +73,7 @@ Go to *Edit* -> *Virtual Network Editor* and change the Subnet IP to
 > Illustration 1: NAT network VMware address
 `
 
-## 4.1 CLIENT-USRLAN (Ubuntu 16.04LTS Desktop Client)
+## 4.1. CLIENT-USRLAN (Ubuntu 16.04LTS Desktop Client)
 
 For the Ubuntu Desktop, but also for the Server versions use the VMWare
 VM Typical settings, since it sets everything needed by default, even
@@ -108,7 +108,7 @@ to all of the OS and hardware. Machine settings should resemble those in
 > Illustration 4: VM Settings - CLIENT-USRLAN
 
 
-## 4.2 SERVER-SRVLAN-DNS & SERVER-DMZ-WEB (Ubuntu 16.04LTS Server)
+## 4.2. SERVER-SRVLAN-DNS & SERVER-DMZ-WEB (Ubuntu 16.04LTS Server)
 
 The Ubuntu Server Virtual Machines will follow the same steps as those
 of creating the [**CLIENT-USRLAN**](#illustration2), except using the
@@ -133,7 +133,7 @@ or [Illustration 7](#illustration7).
 </a>
 > Illustration 7: VM Settings - SERVER-DMZ-WEB
 
-## 4.3 ROUTER-EXT & ROUTER-INT (JunOS vSRX 12.1)
+## 4.3. ROUTER-EXT & ROUTER-INT (JunOS vSRX 12.1)
 
 Open the downloaded `junos-vsrx-12.1X47-D15.4-domestic.ovf` using the VMWare
 file menu. Rename the machine “ROUTER-EXT”. Create a full clone of the
@@ -141,7 +141,7 @@ file menu. Rename the machine “ROUTER-EXT”. Create a full clone of the
 is already installed on the image, there are no further OS installation steps for
 these machines.
 
-# 5 Configuring the virtual machines
+# 5. Configuring the virtual machines
 
 The CLIENT-USRLAN client is connected to the internet to clone this
 repository, the configuration files needed for the servers and routers
@@ -168,7 +168,7 @@ sudo update-rc.d ssh enable
 sudo service ssh start
 ```
 
-## 5.1 Cloning the git repository to CLIENT-USRLAN
+## 5.1. Cloning the git repository to CLIENT-USRLAN
 
 First start “terminal“ and install git to CLIENT-USRLAN as shown in
 [Illustration 8](#illustration8).
@@ -200,7 +200,7 @@ cd project_network
 After this is done leav e the client as it is for now and go on to the
 next step.
 
-## 5.2 Configure the routers
+## 5.2. Configure the routers
 
 The goal of these steps are to get the routers online on the NAT network,
 temporarily, to copy the configuration files from the git repository now
@@ -225,7 +225,7 @@ to be.
 </a>
 > Illustration 11: VM configuration for router NAT access
 
-### 5.2.1 Configure the routers for DHCP on the NAT
+### 5.2.1. Configure the routers for DHCP on the NAT
 
 The default login for the new routers are `root` and an empty password.
 
@@ -276,7 +276,7 @@ to push the configuration file to the router.
 </a>
 > Illustration 12: IP address of the router on the NAT network
 
-### 5.2.2 Push the configuration file to the router via SSH
+### 5.2.2. Push the configuration file to the router via SSH
 
 *These steps are carried out back in CLIENT-USRLAN.*
 
@@ -309,7 +309,7 @@ to is actually the right machine as shown in [Illustration 13](#illustration13)
 </a>
 > Illustration 13: First time SSH connection
 
-### 5.2.2 Commit the configuration file on the router
+### 5.2.2. Commit the configuration file on the router
 
 Login to the router through the Virtual Machine console to load and commit
 the configuration file.
@@ -336,7 +336,7 @@ commit
 
 To shut down the router exit to the JunOS prompt, type `halt -p`, and wait.
 
-## 5.3 CLIENT-USRLAN IP address ##
+## 5.3. CLIENT-USRLAN IP address ##
 
 In the following steps the IP address of CLIENT-USRLAN is needed. The IP address
  can be obtained by logging in to the CLIENT-USRLAN and typing `ip addr` in a
@@ -347,7 +347,7 @@ In the following steps the IP address of CLIENT-USRLAN is needed. The IP address
 </a>
 > Illustration 14: Getting the IP address of CLIENT-USRLAN on the NAT
 
-## 5.4 SERVER-SRVLAN-DNS
+## 5.4. SERVER-SRVLAN-DNS
 
 Install dnsmasq and ssh in the Virtual Machine console and copy the updated
 configuration files into place.
@@ -369,7 +369,7 @@ sudo scp -r *user name*@*CLIENT-USRLAN ip*:~/project_network/server-srvlan-dns/*
 where:
  * `*user name*` is the user name entered when creating the Virtual Machine.
  * `*CLIENT-USRLAN ip*` is the Virtual Machine IP address obtained as in
-   [5.3 CLIENT-USRLAN IP address](#53-client-usrlan-ip-address).
+   [5.3. CLIENT-USRLAN IP address](#53-client-usrlan-ip-address).
 
 The result of the copy process should look something like [Illustration 15](#illustration15)
 
@@ -381,7 +381,7 @@ The result of the copy process should look something like [Illustration 15](#ill
 After copying the configuration files shutdown the machine by typing
 `sudo poweroff`.
 
-## 5.5 SERVER-DMZ-WEB
+## 5.5. SERVER-DMZ-WEB
 
 Install the Nginx web server and ssh in the Virtual Machine console and copy
 the updated configuration files into place.
@@ -403,7 +403,7 @@ sudo scp -r *user name*@*CLIENT-USRLAN ip*:~/project_network/server-dmz-web/* /.
 where:
  * `*user name*` is the user name entered when creating the Virtual Machine.
  * `*CLIENT-USRLAN ip*` is the Virtual Machine IP address obtained as in
-   [5.3 CLIENT-USRLAN IP address](#53-client-usrlan-ip-address).
+   [5.3. CLIENT-USRLAN IP address](#53-client-usrlan-ip-address).
 
 After copying the configuration files shutdown the machine by typing
 `sudo poweroff`.
@@ -412,7 +412,7 @@ For more info please check `server-dmz-web` folder.
 Online Version:
 [https://github.com/deadbok/project_network/tree/master/server-dmz-web](https://github.com/deadbok/project_network/tree/master/server-dmz-web)
 
-# 6 Network setup
+# 6. Network setup
 
 This configuration uses the WMWare LAN segment feature. The LAN segments
 created in the first virtual machine area available to the rest as well.
