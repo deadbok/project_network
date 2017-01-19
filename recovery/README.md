@@ -1,6 +1,6 @@
 # Recovery Documentation
 ## Project network
-**Version 0.9.7**
+**Version 0.9.8**
 
 # 1. Introduction
 
@@ -403,29 +403,41 @@ Online Version:
 
 # 6. Network setup
 
-This configuration uses the WMWare LAN segment feature. The LAN segments
-created in the first virtual machine area available to the rest as well.
+This configuration uses WMWare host-only virtual networks. A bunch
+of virtual networks have to be created in the `Virtual Network Editor`found in
+the 'Edit' menu in WMWare.
 
-Open the settings for the virtual machine and navigate to the LAN
-segment settings as shown in [Illustration 15](#illustration15).
-
-<a name="illustration15">
-![Creating the LAN segments](../images/vmware-LAN-segments.png)
-</a>
-> Illustration 15: Creating the LAN segments
-
-Set the interfaces of the virtual machines according to [Table 1](#table1):
-
+These are the networks that should be created:
 <span name="table1">&nbsp;<span>
 
-|    Machine name   |   Interface 1   | Interface 2 |   Interface 3   |  Interface 4  |
-|-------------------|:---------------:|:-----------:|:---------------:|:-------------:|
-| CLIENT-USRLAN     | USRLAN          |     *nc*    |      *nc*       |      *nc*     |
-| ROUTER-INT        | USRLAN          |    SRVLAN   | Router internal |      *nc*     |
-| ROUTER-EXT        | Router internal |     DMZ     |       NAT       |      *nc*     |
-| SERVER-SRVLAN-DNS | SRVLAN          |     *nc*    |      *nc*       |      *nc*     |
-| SERVER-DMZ-WEB    | DMZ             |     *nc*    |      *nc*       |      *nc*     |
+| vmnet  |   Network     | Name                                 |
+|--------|--------------:|--------------------------------------|
+| vmnet1 | 10.7.10.0/24  | DMZ                                  |
+| vmnet2 | 10.7.20.0/24  | Router internal                      |
+| vmnet3 | 10.7.30.0/24  | SRVLAN                               |
+| vmnet4 | 10.7.100.0/24 | USRLAN                               |
+| vmnet8 | 10.0.0.0/24   | Internet connection used for testing |
+
+> Table 1: VMWare virtual networks
+
+After the configuration the Virtual Network Editor window should
+ressemble [Illustration 15](#illustration15).
+
+<a name="illustration15">
+![The virtual networks in the Virtual Network Editor](../vmware-dmz-vmnet-setup-all.png)
+</a>
+> Illustration 15: The virtual networks in the Virtual Network Editor
+Set the interfaces of the virtual machines according to [Table 2](#table2):
+
+<span name="table2">&nbsp;<span>
+
+|    Machine name   | Interface 1 | Interface 2 | Interface 3 | Interface 4 |
+|-------------------|:-----------:|:-----------:|:-----------:|:-----------:|
+| CLIENT-USRLAN     | vmnet4      |     *nc*    |      *nc*   |      *nc*   |
+| ROUTER-INT        | vmnet4      |    vmnet3   |     vmnet2  |      *nc*   |
+| ROUTER-EXT        | vmnet2      |    vmnet1   |     vmnet8  |      *nc*   |
+| SERVER-SRVLAN-DNS | vmnet3      |     *nc*    |      *nc*   |      *nc*   |
+| SERVER-DMZ-WEB    | vmnet1      |     *nc*    |      *nc*   |      *nc*   |
 
 *nc*: not connected.
-
 > Table 1: Virtual machine interface connections.
