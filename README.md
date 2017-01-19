@@ -15,7 +15,7 @@ servers from our virtual desktop.
 
 ### Level 3 Diagram
 <a name="illustration2">
-![Level 3 Diagram](images/topology_L3_week_48.png)
+![Level 3 Diagram](images/network-diagram-L3.png)
 </a>
 > Illustration 2: Network Layer 3 Diagram
 
@@ -42,8 +42,8 @@ DNS does I that when I enter www.google.com it translates it to the correct IP a
 
 | Network name |   Gateway   |        Subnet         |        Connections             |
 |--------------|-------------|-----------------------|--------------------------------|
-|  ROUTER-EXT  | 10.0.0.1    | DMZ 10.0.0.0/24       | SERVER-DMZ-WEB 10.0.0.2        | 
-|  ROUTER-INT  | 192.168.1.1 | SRVLAN 192.168.1.0/24 | SERVER-SRVLAN-DNS 192.168.1.2  | 
+|  ROUTER-EXT  | 10.0.0.1    | DMZ 10.0.0.0/24       | SERVER-DMZ-WEB 10.0.0.2        |
+|  ROUTER-INT  | 192.168.1.1 | SRVLAN 192.168.1.0/24 | SERVER-SRVLAN-DNS 192.168.1.2  |
 |  ROUTER-INT  | 192.168.0.1 | SRVLAN 192.168.0.0/24 | CLIENT-USRLAN 192.168.0.2      |
 |  ROUTER-EXT  | 10.1.0.1    | 10.0.0.0/30           | ROUTER-INT 10.1.0.2            |
 
@@ -60,7 +60,7 @@ URSLAN
  * `recovery`: The recovery documentation
  * `router-*`: Configuration files for the routers
  * `server-*`: Configuration files for the servers
- 
+
 # 9. Building additional files or updating them
 
 At the top level is a make file with the following rules:
@@ -68,15 +68,15 @@ At the top level is a make file with the following rules:
  * router-conf: Build the router configuration files from the Markdown formatted versions.
  * recovery: Build a .pdf version of the recovery documentation.
  * all: Build all.
- 
+
 To invoke any of these, use the make command:
 
 `make *rule name*`
- 
+
 # 10. Futher reading
 
  * [SRX Configuration example using fully qualified domain names in security policies](https://kb.juniper.net/InfoCenter/index?page=content&id=KB20994&actp=search)
  * [Example: Configuring Security Zones and Policies for SRX Series](https://www.juniper.net/documentation/en_US/junos12.1x46/topics/example/security-srx-device-zone-and-policy-configuring.html)
- * [Juniper SRX Port Forwarding / Destination NAT](https://doittherightway.wordpress.com/2013/03/07/juniper-srx-port-forwarding-destination-nat/) 
+ * [Juniper SRX Port Forwarding / Destination NAT](https://doittherightway.wordpress.com/2013/03/07/juniper-srx-port-forwarding-destination-nat/)
  * [SRX Getting Started - Configure DNS](https://kb.juniper.net/InfoCenter/index?page=content&id=KB15656&actp=search)
  * [Understanding NAT Rule Sets and Rules](http://www.juniper.net/documentation/en_US/junos12.1x47/topics/concept/nat-security-rule-set-and-rule-understanding.html)
