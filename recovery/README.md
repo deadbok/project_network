@@ -424,9 +424,10 @@ After the configuration the Virtual Network Editor window should
 ressemble [Illustration 15](#illustration15).
 
 <a name="illustration15">
-![The virtual networks in the Virtual Network Editor](../vmware-dmz-vmnet-setup-all.png)
+![The virtual networks in the Virtual Network Editor](../images/vmware-dmz-vmnet-setup-all.png)
 </a>
 > Illustration 15: The virtual networks in the Virtual Network Editor
+
 Set the interfaces of the virtual machines according to [Table 2](#table2):
 
 <span name="table2">&nbsp;<span>
