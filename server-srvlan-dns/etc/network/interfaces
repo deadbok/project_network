@@ -13,7 +13,7 @@ iface lo inet loopback
 # The primary network interface
 allow-hotplug ens33
 iface ens33 inet static
-	address 192.168.1.2
+	address 10.7.30.2
 	netmask 255.255.255.0
-	gateway 192.168.1.1
+	gateway 10.7.30.1
 

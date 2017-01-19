@@ -2,20 +2,20 @@
 127.0.0.1       localhost
 
 # Servers
-10.0.0.2		server-dmz-web.localnet
-192.168.1.2 	server-srvlan-dns.localnet
+10.7.10.2		server-dmz-web.localnet
+10.7.30.2 		server-srvlan-dns.localnet
 
 # Router interfaces
-10.0.0.1 		router-ext-dmz
-10.1.0.1 		router-ext-router-internal
-192.168.206.3	router-ext-vmnet
+10.7.10.1 		router-ext-dmz
+10.7.20.1 		router-ext-router-internal
+10.7.0.1		router-ext-vmnet
 
-192.168.0.1 	router-int-usrlan
-192.168.1.1 	router-int-srvlan
-10.1.0.2 		router-int-router-internal
+10.7.100.1 		router-int-usrlan
+10.7.30.1 		router-int-srvlan
+10.7.20.2 		router-int-router-internal
 
 # VMWare NAT gateway
-192.168.206.2	vmnet-gw
+10.7.0.2	vmnet-gw
 
 # The following lines are desirable for IPv6 capable hosts
 ::1     localhost ip6-localhost ip6-loopback
