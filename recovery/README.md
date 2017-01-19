@@ -54,24 +54,11 @@ curriculum resources.
 - Network Servers: [Ubuntu 16.04LTS Server Installer ISO](https://www.ubuntu.com/download/server/thank-you?version=16.04.1&architecture=amd64)
 - Network Client: [Ubuntu 16.04LTS Desktop Installer ISO](https://www.ubuntu.com/download/desktop/contribute?version=16.04.1&architecture=amd64)
 
-# 4. Creating The Virtual Machines And Install Their OSs
+# 4. Creating The Virtual Machines And Installing Their OSs
 
 When creating the virtual machines do not bother with the network
 configuration at this time. Set the first interface of each virtual
 machine to NAT.
-
-For the ROUTER-EXT connection to the Internet to work, the IP address
-of the NAT network in VMware have to be configured to match the IP
-address in the configuration of ROUTER-EXT.
-
-Go to *Edit* -> *Virtual Network Editor* and change the Subnet IP to
-`192.168.206.0` as shown in [Illustration 1](#illustration1)).
-
-<a name="illustration1">
-![NAT network VMware address](../images/vmware-nat-ip.png)
-</a>
-> Illustration 1: NAT network VMware address
-`
 
 ## 4.1. CLIENT-USRLAN (Ubuntu 16.04LTS Desktop Client)
 
@@ -80,58 +67,58 @@ VM Typical settings, since it sets everything needed by default, even
 the network interface to NAT, which is an essential feature needed in
 the OS install and later software/service installation.
 When setting up this machine in VMWare,
-create a Typical custom machine (as shown in [Illustration 2](#illustration2)).
+create a Typical machine (as shown in [Illustration 1](#illustration1)).
 
-<a name="illustration2">
+<a name="illustration1">
 ![Creating a Typical custom Virtual Machine](../images/vmware-typical-machine.png)
 </a>
-> Illustration 2: Creating a Typical custom virtual machine
+> Illustration 1: Creating a Typical custom virtual machine
 
 Next select the downloaded Ubuntu Desktop ISO as the operating system
-source (as shown in [Illustration 3](#illustration3)).
+source (as shown in [Illustration 2](#illustration2)).
 
-<a name="illustration3">
+<a name="illustration2">
 ![Selecting operating system source](../images/install-ubuntu-desktop.png)
 </a>
-> Illustration 3: Selecting operating system source
+> Illustration 2: Selecting operating system source
 
 Setup will request adding a name for the machine, disk size, user and
 password. By filling in the user information a less privileged user will
 be created. When logged in as this user you can temporarily change to
 the `root` account, which is the superuser of the system that has access
 to all of the OS and hardware. Machine settings should resemble those in
-[Illustration 4](#illustration4).
+[Illustration 3](#illustration3).
 
-<a name="illustration4">
+<a name="illustration3">
 ![VM Settings - CLIENT-USRLAN](../images/client-vm-settings.png)
 </a>
-> Illustration 4: VM Settings - CLIENT-USRLAN
+> Illustration 3: VM Settings - CLIENT-USRLAN
 
 
 ## 4.2. SERVER-SRVLAN-DNS & SERVER-DMZ-WEB (Ubuntu 16.04LTS Server)
 
 The Ubuntu Server Virtual Machines will follow the same steps as those
-of creating the [**CLIENT-USRLAN**](#illustration2), except using the
+of creating the [**CLIENT-USRLAN**](#illustration1), except using the
 downloaded Ubuntu Server ISO as the operating system source
-(as shown in [Illustration 5](#illustration5)).
+(as shown in [Illustration 4](#illustration4)).
 
-<a name="illustration5">
+<a name="illustration4">
 ![Selecting operating system source](../images/install-ubuntu-server.png)
 </a>
-> Illustration 5: Selecting operating system source
+> Illustration 4: Selecting operating system source
 
-Settings for each server should resemble one of [Illustration 6](#illustration6)
-or [Illustration 7](#illustration7).
+Settings for each server should resemble one of [Illustration 5](#illustration5)
+or [Illustration 6](#illustration6).
 
-<a name="illustration6">
+<a name="illustration5">
 ![VM Settings - SERVER-SRVLAN-DNS](../images/dns-server-vm-settings.png)
 </a>
-> Illustration 6: VM Settings - SERVER-SRVLAN-DNS
+> Illustration 5: VM Settings - SERVER-SRVLAN-DNS
 
-<a name="illustration7">
+<a name="illustration6">
 ![VM Settings - SERVER-DMZ-WEB](../images/web-server-vm-settings.png)
 </a>
-> Illustration 7: VM Settings - SERVER-DMZ-WEB
+> Illustration 6: VM Settings - SERVER-DMZ-WEB
 
 ## 4.3. ROUTER-EXT & ROUTER-INT (JunOS vSRX 12.1)
 
@@ -171,20 +158,20 @@ sudo service ssh start
 ## 5.1. Cloning the git repository to CLIENT-USRLAN
 
 First start “terminal“ and install git to CLIENT-USRLAN as shown in
-[Illustration 8](#illustration8).
+[Illustration 7](#illustration7).
 
 ```bash
 sudo apt install git
 ```
 
-<a name="illustration8">
+<a name="illustration7">
 ![Installing git in CLIENT-USRLAN](../images/install-client-git.png)
 </a>
-> Illustration 8: Installing git on CLIENT-USRLAN
+> Illustration 7: Installing git on CLIENT-USRLAN
 
 then clone this repository onto the CLIENT-USRLAN and change in to the directory
 where the repository was cloned as shown in
-[Illustration 9](#illustration9).
+[Illustration 8](#illustration8).
 
 ```bash
 git clone https://github.com/deadbok/project_network
@@ -192,10 +179,10 @@ cd project_network
 ```
 
 
-<a name="illustration9">
+<a name="illustration8">
 ![Cloning the project_network repository](../images/clone-client-git.png)
 </a>
-> Illustration 9: Installing git on CLIENT-USRLAN
+> Illustration 8: Installing git on CLIENT-USRLAN
 
 After this is done leav e the client as it is for now and go on to the
 next step.
@@ -208,22 +195,22 @@ present on CLIENT-USRLAN.
 
 First the default network setup of the Virtual Machine is changed to allow
 a connection to the same NAT network that CLIENT-USRLAN is connected to. The
-default configuration is shown in [Illustration 10](#illustration10).
+default configuration is shown in [Illustration 9](#illustration9).
 
-<a name="illustration10">
+<a name="illustration9">
 ![Default router network configuration](../images/routers-initital-net.png)
 </a>
-> Illustration 10: Default router network configuration
+> Illustration 9: Default router network configuration
 
 Change the first network adapter to `NAT` and disable the rest by unchecking
-`Connect at power on` as shown in [Illustration 11](#illustration11). Do not
+`Connect at power on` as shown in [Illustration 10](#illustration10). Do not
 disable the first network adapter in the VM though it could seem like it needs
 to be.
 
-<a name="illustration11">
+<a name="illustration10">
 ![VM configuration for router NAT access](../images/routers-nat-net.png)
 </a>
-> Illustration 11: VM configuration for router NAT access
+> Illustration 10: VM configuration for router NAT access
 
 ### 5.2.1. Configure the routers for DHCP on the NAT
 
@@ -242,7 +229,11 @@ edit
 set system root-authentication plain-text-password
 New Password: type password here
 Retype new password: retype password here
+```
 
+At this point you can just copy/paste the next part until the ping, in one go.
+
+```bash
 # Set the interface to DHCP
 set interfaces ge-0/0/0 unit 0 family inet dhcp
 
@@ -271,10 +262,10 @@ ifconfig | grep -A2 ge-0/0/0
 The last command will print the IP of the interface ge-0/0/0 that will be used
 to push the configuration file to the router.
 
-<a name="illustration12">
+<a name="illustration11">
 ![IP address of the router on the NAT network](../images/routers-get-nat-ip.png)
 </a>
-> Illustration 12: IP address of the router on the NAT network
+> Illustration 11: IP address of the router on the NAT network
 
 ### 5.2.2. Push the configuration file to the router via SSH
 
@@ -283,10 +274,8 @@ to push the configuration file to the router.
 The specific configuration file for each router is located here (on
 CLIENT-USRLAN):
 
- * ROUTER-INT: `./router-int-conf/router-int.conf`
- * ROUTER-EXT: `./router-ext-conf/router-ext.conf`
-
-
+ * ROUTER-INT: `./router-int/conf/router-int.conf`
+ * ROUTER-EXT: `./router-ext/conf/router-ext.conf`
 
 To push the configuration file onto the router when configured for SSH
 access do like this:
@@ -299,15 +288,15 @@ where:
  * `*router configuration file*` is the specific configuration file for the
    router as mentioned above.
  * `*ip of router*` is the specific IP address for the router as seen in
-   [Illustration 12](#illustration12).
+   [Illustration 11](#illustration11).
 
 The first time an SSH connection is made, ssh will ask if the machine connected
-to is actually the right machine as shown in [Illustration 13](#illustration13)
+to is actually the right machine as shown in [Illustration 12](#illustration12)
 
-<a name="illustration13">
+<a name="illustration12">
 ![First time SSH connection](../images/ssh-first-time-connection.png)
 </a>
-> Illustration 13: First time SSH connection
+> Illustration 12: First time SSH connection
 
 ### 5.2.2. Commit the configuration file on the router
 
@@ -340,12 +329,12 @@ To shut down the router exit to the JunOS prompt, type `halt -p`, and wait.
 
 In the following steps the IP address of CLIENT-USRLAN is needed. The IP address
  can be obtained by logging in to the CLIENT-USRLAN and typing `ip addr` in a
- terminal window as shown in [Illustration 14](#illustration14)
+ terminal window as shown in [Illustration 13](#illustration13)
 
-<a name="illustration14">
+<a name="illustration13">
 ![Getting the IP address of CLIENT-USRLAN on the NAT](../images/client-get-ip.png)
 </a>
-> Illustration 14: Getting the IP address of CLIENT-USRLAN on the NAT
+> Illustration 13: Getting the IP address of CLIENT-USRLAN on the NAT
 
 ## 5.4. SERVER-SRVLAN-DNS
 
@@ -371,7 +360,7 @@ where:
  * `*CLIENT-USRLAN ip*` is the Virtual Machine IP address obtained as in
    [5.3. CLIENT-USRLAN IP address](#53-client-usrlan-ip-address).
 
-The result of the copy process should look something like [Illustration 15](#illustration15)
+The result of the copy process should look something like [Illustration 14](#illustration14)
 
 <a name="illustration14">
 ![Output after copying the configuration files](../images/server-dns-copy-config.png)
@@ -418,12 +407,12 @@ This configuration uses the WMWare LAN segment feature. The LAN segments
 created in the first virtual machine area available to the rest as well.
 
 Open the settings for the virtual machine and navigate to the LAN
-segment settings as shown in [Illustration 12](#illustration12).
+segment settings as shown in [Illustration 15](#illustration15).
 
-<a name="illustration12">
+<a name="illustration15">
 ![Creating the LAN segments](../images/vmware-LAN-segments.png)
 </a>
-> Illustration 12: Creating the LAN segments
+> Illustration 15: Creating the LAN segments
 
 Set the interfaces of the virtual machines according to [Table 1](#table1):
 
