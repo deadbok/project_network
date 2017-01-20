@@ -264,13 +264,14 @@ tr, td {
 	margin-bottom: .75em;
 	padding-bottom: .75em;
 }
-.md-file h1:first-of-type {
-	margin-top: 0;
-}
 .md-file h2,
 .md-file h3 {
 	margin: 1.25em 0 1em;
 	line-height: 1.25em;
+}
+.md-file h1:first-of-type,
+.md-file h2:first-of-type {
+	margin-top: 0;
 }
 
 /* Fix scroll-to achor link */
