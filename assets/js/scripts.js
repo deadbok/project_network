@@ -12,8 +12,7 @@ $(document).ready( function () {
 	////////////////////////////
 
 	// Fixes some visual issues by displaying the content only when it is ready
-	$('body').removeClass('loading');
-	$('body').addClass('ready');
+	$('body').removeClass('loading').addClass('ready');
 	$('header,main,footer').fadeIn(150);
 
 	////////////////////////////
@@ -71,6 +70,18 @@ $(document).ready( function () {
 				console.log('AJAX Error! Response: ' + statusCode.status);
 			}
 		}
+	});
+
+	////////////////////////////
+	// Copy To Clipboard
+	////////////////////////////
+	$('.anchor').on( 'click', function() {
+		var clipboard = new Clipboard(this);
+
+	    clipboard.on('success', function(e) {
+	        alert(e);
+	    });
+
 	});
 
 	////////////////////////////

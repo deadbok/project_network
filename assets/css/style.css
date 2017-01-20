@@ -11,6 +11,7 @@
 
 /*****************
 * 1. CSS RESETS
+*
 * Author: http://meyerweb.com/eric/tools/css/reset/
 * Version v2.0 | 20110126
 * License: none (public domain)
@@ -97,11 +98,13 @@ body.ready:before {
 
 body {
 	font: 16px/1.5em 'Roboto Condensed', Arial, sans-serif;
-	color: #222;
+	color: #303030;
+	text-shadow: 0 0 1px rgba(0,0,0,.05);
 }
 
 strong {
 	font-family: 'Roboto Condensed Bold';
+	font-weight: bold;
 }
 
 img {
@@ -156,7 +159,7 @@ blockquote {
 }
 code {
 	background: rgba(0,0,0,.04);
-	padding: .5em;
+	padding: .5em 1em;
 	border-radius: 3px;
 	font-family: 'Oxygen Mono', monospace;
 	font-size: .9em;
@@ -235,7 +238,7 @@ tr, td {
 	float: left;
 	width: 25%;
 	margin-right: 2%;
-	padding: 2em 2% 2em 0;
+	padding: .5em 2% 2em 0;
 	border-right: 3px solid rgba(0,0,0,.2);
 	font-size: .875em;
 	word-break: break-word;
@@ -259,20 +262,24 @@ tr, td {
 	margin-top: 1.5em;
 	line-height: 1.25em;
 	margin-bottom: .75em;
-	padding-bottom: .55em;
+	padding-bottom: .75em;
 }
 .md-file h1:first-of-type {
 	margin-top: 0;
 }
 .md-file h2,
 .md-file h3 {
-	margin: 1.5em 0 1em;
+	margin: 1.25em 0 1em;
 	line-height: 1.25em;
 }
 
 /* Fix scroll-to achor link */
 .md-file a[name]:not([href^='#']) {
 	display: block;
+}
+
+.md-file .anchor {
+	display: none;
 }
 
 /* Header
@@ -285,7 +292,7 @@ header {
 	width: 100%;
 	padding: 0;
 	color: #006E79;
-	background: #fff;
+	background: rgba(255,255,255,.95);
 	box-shadow: 0 0 1px 1px rgba(0, 110, 121,.25);
 	border-bottom: 3px solid #006E79;
 }
@@ -393,6 +400,12 @@ header .pagewidth {
 	visibility: visible;
 }
 
+.main-nav .highlight,
+.main-nav .highlight:hover,
+.main-nav .highlight.active {
+	text-decoration: overline;
+}
+
 /* Alignment */
 .left {
 	text-align: left;
@@ -404,8 +417,8 @@ header .pagewidth {
 /* Project Details
 *****************/
 .project-details {
-	padding: 3% 0 4%;
-	border-bottom: 3px solid rgba(0,0,0,.2);
+	padding: 4% 0;
+	border-bottom: 3px solid rgba(0,0,0,.1);
 	margin-bottom: 2%;
 	font-size: .875em;
 }
@@ -423,6 +436,8 @@ header .pagewidth {
 }
 .eal-logo {
 	max-width: 120px;
+	margin: 0;
+	vertical-align: middle;
 }
 
 /* Main
@@ -606,7 +621,7 @@ body.ajax-not-working .content .md-file {
 		right: 0;
 		padding: .5em 1em;
 		width: 100%;
-		background: #fff;
+		background: rgba(255,255,255,.95);
 		max-width: 100%;
 		margin-top: 3px;
 		box-shadow: 0 0 1px 1px rgba(0, 110, 121,.25);
@@ -642,7 +657,8 @@ body.ajax-not-working .content .md-file {
 	}
 	.info {
 		border-right: none;
-		border-bottom: 3px solid rgba(0,0,0,.2);
-		padding: 0 0 2% 0;
+		border-bottom: 3px solid rgba(0,0,0,.1);
+		adding: 0 0 3% 0;
+    	margin-bottom: 3%;
 	}
 }
