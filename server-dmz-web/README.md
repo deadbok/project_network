@@ -1,4 +1,5 @@
-# Server Configuration
+# Web Server
+## Project Network
 
 ![Simplified HTTP Request](../images/network-diagram-http.png)
 
