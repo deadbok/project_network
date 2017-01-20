@@ -239,7 +239,7 @@ tr, td {
 	width: 25%;
 	margin-right: 2%;
 	padding: .5em 2% 2em 0;
-	border-right: 3px solid rgba(0,0,0,.2);
+	border-right: 3px solid rgba(0,0,0,.1);
 	font-size: .875em;
 	word-break: break-word;
 }
