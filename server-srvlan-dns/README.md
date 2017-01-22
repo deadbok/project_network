@@ -24,7 +24,7 @@ sending everything else along to (in this case) Googles DNS servers.
 All static IP addresses internal to the network, has been assigned a DNS names
 on the local domain in `/etc/hosts` configuration file.
 
-|     IP     |           DNS name         |   Device
+|     IP     |           DNS name         |   Device                                                   |
 |-----------:|:--------------------------:|------------------------------------------------------------|
 | 10.7.0.2	 | vmnet-gw                   | VMWares gateway when using the testing NAT                 |
 | 10.7.0.3	 | router-ext-world           | External router world connected interface                  |
