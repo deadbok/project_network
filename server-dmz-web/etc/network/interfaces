@@ -12,5 +12,5 @@ allow-hotplug ens33
 iface ens33 inet static
 	address 10.7.10.2
 	netmask 255.255.255.0
-	gateway 10.0.0.1
-
+	gateway 10.7.10.1
+	dns-nameservers 10.7.30.2
