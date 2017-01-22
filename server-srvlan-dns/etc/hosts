@@ -25,7 +25,8 @@
 # Router interfaces
 10.7.10.1 		router-ext-dmz
 10.7.20.1 		router-ext-router-internal
-10.7.0.1		router-ext-vmnet
+10.7.0.3		router-ext-world
+10.7.0.4  server-world-web
 
 10.7.100.1 		router-int-usrlan
 10.7.30.1 		router-int-srvlan
