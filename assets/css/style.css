@@ -100,6 +100,7 @@ body {
 	font: 16px/1.5em 'Roboto Condensed', Arial, sans-serif;
 	color: #303030;
 	text-shadow: 0 0 1px rgba(0,0,0,.05);
+	word-break: break-word;
 }
 
 strong {

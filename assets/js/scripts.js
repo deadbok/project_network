@@ -50,7 +50,7 @@ $(document).ready( function () {
 			$('.info, .md-file').fadeIn(200);
 
 			// Convert readme from markdown to html
-			var converter = new showdown.Converter({extensions: ['table', 'github']});
+			var converter = new showdown.Converter({extensions: ['table']});
 
 			// Show html
 			$(target).html(converter.makeHtml(data));
