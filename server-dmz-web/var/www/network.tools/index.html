@@ -10,16 +10,19 @@
 		<meta name="keywords" content="vmware, vm, virtual machine, linux, junos, juniper, ubuntu, network routing">
 		<link rel="icon" href="favicon.ico" type="image/x-icon"/>
 		<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
-		<meta name="theme-color" content="#333333">
-		<meta name="msapplication-navbutton-color" content="#333333">
-		<meta name="apple-mobile-web-app-status-bar-style" content="#333333">
+		<meta name="theme-color" content="#006E79">
+		<meta name="msapplication-navbutton-color" content="#006E79">
+		<meta name="apple-mobile-web-app-status-bar-style" content="#006E79">
+
+		<!-- Root Styles -->
+		<style>header,main,footer {display: none;}</style>
 
 		<!-- Stylesheets -->
 		<link rel="stylesheet" type="text/css" media="all" href="assets/css/style.css">
 
-		<!-- jQuery v3.1.1, Showdown 01-12-2016, Showdown-table 17-06-2015 -->
-		<!-- Showdown-github 03-06-2015, Anchorific 2014-08-06 -->
+		<!-- jQuery v3.1.1, Showdown 01-12-2016, Showdown-table 17-06-2015, Anchorific 2014-08-06 -->
 		<script type="text/javascript" src="assets/js/assets-joined.js"></script>
+
 		<!-- JavaScript -->
 		<script type="text/javascript" src="assets/js/scripts.js"></script>
 
@@ -27,11 +30,11 @@
 	<!-- /head -->
 
 	<!-- body -->
-	<body>
+	<body class="body">
 
 		<!-- header -->
 		<header class="clearfix">
-			<div class="pagewidth">
+			<div class="pagewidth clearfix">
 
 				<!-- .logo -->
 				<div class="logo">
@@ -41,12 +44,32 @@
 
 				<!-- .menu -->
 				<div class="menu">
+					<div class="menu-icon">
+						<span class="one"></span>
+						<span class="two"></span>
+						<span class="three"></span>
+					</div>
 					<ul class="main-nav">
 						<li>
 							<a href="index.html" title="Home" class="active">Home</a>
 						</li>
 						<li>
 							<a href="recovery/index.html" title="Recovery">Recovery</a>
+						</li>
+						<li>
+							<a href="router-ext/index.html" title="External Router">External Router</a>
+						</li>
+						<li>
+							<a href="router-int/index.html" title="Internal Router">Internal Router</a>
+						</li>
+						<li>
+							<a href="server-dmz-web/index.html" title="Web Server">Web Server</a>
+						</li>
+						<li>
+							<a href="server-srvlan-dns/index.html" title="DNS Server">DNS Server</a>
+						</li>
+						<li>
+							<a href="about.html" title="About" class="highlight">About</a>
 						</li>
 					</ul>
 				</div>
@@ -57,7 +80,7 @@
 		<!-- header -->
 
 		<!-- main -->
-		<main>
+		<main class="main">
 
 			<!-- .project-details -->
 			<section class="project-details">
@@ -81,7 +104,7 @@
 			<section class="content">
 				<div class="pagewidth clearfix">
 
-					<!-- Ajax Error (Visiblei if the internet doesn't work) -->
+					<!-- Ajax Error (Visible if the internet doesn't work) -->
 					<div class="ajax-error"></div>
 
 					<!-- .info -->
@@ -91,7 +114,7 @@
 					<!-- /.info -->
 
 					<!-- Render Markdown file in HTML -->
-					<div class="md-file" id="master"></div>
+					<div class="md-file" id="gh-pages"></div>
 
 				</div>
 			</section>
@@ -102,7 +125,7 @@
 
 		<!-- footer -->
 		<footer>
-			<div class="pagewidth">
+			<div class="pagewidth clearfix">
 
 				<p class="left">
 					Project Network - Erhvervsakademiet Lillebælt - IT Technology - 2016 Autumn
