@@ -21,8 +21,8 @@ sending everything else along to (in this case) Googles DNS servers.
 * `dhcp-option=option:dns-server,10.7.30.2`: Set ourselves as DNS ser via DHCP.
 
 ### Host names
-All static IP addresses internal to the network, has been assigned a DNS names
-on the local domain in `/etc/hosts` configuration file.
+All static internal hosts on all IP addresses, has been assigned a DNS name on the local domain in the
+`/etc/hosts` configuration file.
 
 |     IP     |           DNS name         |   Device                                                   |
 |-----------:|:--------------------------:|------------------------------------------------------------|
