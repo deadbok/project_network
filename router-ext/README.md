@@ -1,4 +1,4 @@
-# External Server
+# External Router
 ## Project Network
 
 ### Basic functions
@@ -155,3 +155,6 @@ security {
     }
 }
 ```
+### Configuring file
+
+The whole configuration file is here: [https://github.com/deadbok/project_network/blob/master/router-ext/conf/router-ext.conf](https://github.com/deadbok/project_network/blob/master/router-ext/conf/router-ext.conf)
