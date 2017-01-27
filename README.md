@@ -76,6 +76,13 @@ To invoke any of these, use the make command:
 
 `make *rule name*`
 
+# 10. VMWare on Debian Linux.
+
+VMWare seems to configure its vmnet interfaces to use the .1 IP address of the
+network that it is on. On Windows you can change this by changing the static IP
+of each interface, the script `linux_iface_setup.sh`, does the same thing moving
+the interfaces to .201 on Debian Linux. Your milage mat vary.
+
 # 10. Futher reading
 
  * [SRX Configuration example using fully qualified domain names in security policies](https://kb.juniper.net/InfoCenter/index?page=content&id=KB20994&actp=search)
