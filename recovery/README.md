@@ -70,7 +70,9 @@ When setting up this machine in VMWare,
 create a Typical machine (as shown in [Illustration 1](#illustration1)).
 
 <a name="illustration1">
+
 ![Creating a Typical custom Virtual Machine](../images/vmware-typical-machine.png)
+
 </a>
 > Illustration 1: Creating a Typical custom virtual machine
 
@@ -78,7 +80,9 @@ Next select the downloaded Ubuntu Desktop ISO as the operating system
 source (as shown in [Illustration 2](#illustration2)).
 
 <a name="illustration2">
+
 ![Selecting operating system source](../images/install-ubuntu-desktop.png)
+
 </a>
 > Illustration 2: Selecting operating system source
 
@@ -90,7 +94,9 @@ to all of the OS and hardware. Machine settings should resemble those in
 [Illustration 3](#illustration3).
 
 <a name="illustration3">
+
 ![VM Settings - CLIENT-USRLAN](../images/client-vm-settings.png)
+
 </a>
 > Illustration 3: VM Settings - CLIENT-USRLAN
 
@@ -103,7 +109,9 @@ downloaded Ubuntu Server ISO as the operating system source
 (as shown in [Illustration 4](#illustration4)).
 
 <a name="illustration4">
+
 ![Selecting operating system source](../images/install-ubuntu-server.png)
+
 </a>
 > Illustration 4: Selecting operating system source
 
@@ -111,12 +119,16 @@ Settings for each server should resemble one of [Illustration 5](#illustration5)
 or [Illustration 6](#illustration6).
 
 <a name="illustration5">
+
 ![VM Settings - SERVER-SRVLAN-DNS](../images/dns-server-vm-settings.png)
+
 </a>
 > Illustration 5: VM Settings - SERVER-SRVLAN-DNS
 
 <a name="illustration6">
+
 ![VM Settings - SERVER-DMZ-WEB](../images/web-server-vm-settings.png)
+
 </a>
 > Illustration 6: VM Settings - SERVER-DMZ-WEB
 
@@ -165,7 +177,9 @@ sudo apt install git
 ```
 
 <a name="illustration7">
+
 ![Installing git in CLIENT-USRLAN](../images/install-client-git.png)
+
 </a>
 > Illustration 7: Installing git on CLIENT-USRLAN
 
@@ -180,7 +194,9 @@ cd project_network
 
 
 <a name="illustration8">
+
 ![Cloning the project_network repository](../images/clone-client-git.png)
+
 </a>
 > Illustration 8: Installing git on CLIENT-USRLAN
 
@@ -198,7 +214,9 @@ a connection to the same NAT network that CLIENT-USRLAN is connected to. The
 default configuration is shown in [Illustration 9](#illustration9).
 
 <a name="illustration9">
+
 ![Default router network configuration](../images/routers-initital-net.png)
+
 </a>
 > Illustration 9: Default router network configuration
 
@@ -208,7 +226,9 @@ disable the first network adapter in the VM though it could seem like it needs
 to be.
 
 <a name="illustration10">
+
 ![VM configuration for router NAT access](../images/routers-nat-net.png)
+
 </a>
 > Illustration 10: VM configuration for router NAT access
 
@@ -263,7 +283,9 @@ The last command will print the IP of the interface ge-0/0/0 that will be used
 to push the configuration file to the router.
 
 <a name="illustration11">
+
 ![IP address of the router on the NAT network](../images/routers-get-nat-ip.png)
+
 </a>
 > Illustration 11: IP address of the router on the NAT network
 
@@ -294,7 +316,9 @@ The first time an SSH connection is made, ssh will ask if the machine connected
 to is actually the right machine as shown in [Illustration 12](#illustration12)
 
 <a name="illustration12">
+
 ![First time SSH connection](../images/ssh-first-time-connection.png)
+
 </a>
 > Illustration 12: First time SSH connection
 
@@ -332,7 +356,9 @@ In the following steps the IP address of CLIENT-USRLAN is needed. The IP address
  terminal window as shown in [Illustration 13](#illustration13)
 
 <a name="illustration13">
+
 ![Getting the IP address of CLIENT-USRLAN on the NAT](../images/client-get-ip.png)
+
 </a>
 > Illustration 13: Getting the IP address of CLIENT-USRLAN on the NAT
 
@@ -363,7 +389,9 @@ where:
 The result of the copy process should look something like [Illustration 14](#illustration14)
 
 <a name="illustration14">
+
 ![Output after copying the configuration files](../images/server-dns-copy-config.png)
+
 </a>
 > Illustration 14: Output after copying the configuration files
 
@@ -439,6 +467,8 @@ After the configuration the Virtual Network Editor window should
 ressemble [Illustration 15](#illustration15).
 
 <a name="illustration15">
+
 ![The virtual networks in the Virtual Network Editor](../images/vmware-dmz-vmnet-setup-all.png)
+
 </a>
 > Illustration 15: The virtual networks in the Virtual Network Editor
