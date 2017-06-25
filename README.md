@@ -16,6 +16,7 @@ servers from our virtual desktop.
 ![Level 2 Diagram](images/topology_L2_week_48.png)
 
 </a>
+
 > Illustration 1: Network Layer 2 Diagram
 
 ### Level 3 Diagram
@@ -24,6 +25,7 @@ servers from our virtual desktop.
 ![Level 3 Diagram](images/network-diagram-L3.png)
 
 </a>
+
 > Illustration 2: Network Layer 3 Diagram
 
 # 3. Performance
